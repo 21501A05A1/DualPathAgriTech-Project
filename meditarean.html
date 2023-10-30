@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DualPath AgriTech</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f7f4; /* Soft greenish-blue background */
+        }
+
+        header {
+            background-color: #2b5b84; /* Dark blue header */
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            padding: 20px;
+        }
+
+        #crop-list {
+            flex-basis: 30%;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        #crop-details {
+            flex-basis: 70%;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        button {
+            cursor: pointer;
+            display: block;
+            margin-bottom: 10px;
+            border: none;
+            padding: 10px;
+            width: 100%;
+            text-align: left;
+            font-size: 18px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #ddd;
+        }
+
+        #back-button {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: #2b5b84; /* Dark blue "Back" button */
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+
+        /* Add styles for the heading */
+        #crop-heading {
+            background-color: #70ad47; /* Green heading background */
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            position: relative;
+        }
+
+        /* Add a line under the heading */
+        #crop-heading::after {
+            content: '';
+            display: block;
+            width: 100%;
+            height: 3px;
+            background-color: #ff5733; /* Red line color */
+            position: absolute;
+            bottom: 0;
+            left: 0;
+        }
+
+        /* Add individual button colors */
+        #crop-list button:nth-child(2) {
+            color: #0d0d0c;
+            background-color: #C54644; /* Red for Strawberry */
+        }
+        
+        #crop-list button:nth-child(3) {
+            color: #000000;
+            background-color: #88ff20; /* Yellow for lemon */
+        }
+        
+        #crop-list button:nth-child(4) {
+            color: #020202;
+            background-color: #FBCEB1; /* Apricot colour */
+        }
+        
+        #crop-list button:nth-child(5) {
+            color: #000000;
+            background-color: #568203; /*Avocado*/
+        }
+        
+        #crop-list button:nth-child(6) {
+            color: #000000;
+            background-color: #EF8490; /* cherry */
+        }
+        
+    </style>
+</head>
+<body>
+    <button id="back-button" onclick="goBack()">Back</button>
+    <header>
+        <h1 style="font-size: 36px;">DualPath AgriTech</h1>
+    </header>
+    <div class="container">
+        <div id="crop-list">
+            <h2 id="crop-heading">Other Minor fruits</h2>
+            <button onclick="showCropDetails('Cherry')">Cherry</button>
+            <button onclick="showCropDetails('Lemon')">Lemon</button>
+            <button onclick="showCropDetails('Apricot')">Apricot</button>
+            <button onclick="showCropDetails('Avocado')">Avocado</button>
+            <button onclick="showCropDetails('Strawberry')">Strawberry</button>
+            <!-- Add more fruit crops here with respective colors -->
+        </div>
+        <div id="crop-details">
+            <!-- Crop details will be displayed here -->
+        </div>
+    </div>
+    <script>
+        function showCropDetails(cropName) {
+            const cropDetailElement = document.getElementById('crop-details');
+            cropDetailElement.innerHTML = cropDetails[cropName];
+        }
+
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+    
+    <script>
+        function showCropDetails(cropName) {
+            const cropDetails = {
+                'Cherry': `
+                <center>
+                    <div  style="display: inline-block; text-align: center; margin-right: 20px;">
+                        <img src="https://th.bing.com/th/id/R.993ddce8cfe6ad0dfbb2121b02bac747?rik=LrIuLAQxAhiXPg&riu=http%3a%2f%2fphotos-public-domain.com%2fwp-content%2fuploads%2f2017%2f08%2fcherries.jpg&ehk=pqGyqE214ubaPGmuqzaS0ek594adYV8VfhX6S223eEs%3d&risl=&pid=ImgRaw&r=0" style="width:200px; height:200px; border-radius: 50%;">
+                        
+                    </div>
+                    <div  style="display: inline-block; text-align: center; margin-right: 20px;">
+                        <img src="https://th.bing.com/th/id/R.43b92593b02a7d98ee9ef2bb0ca25f72?rik=coBlZ1%2bi54lO3w&pid=ImgRaw&r=0" style="width:200px; height:200px; border-radius: 50%;">
+                        
+                    </div>
+                </center>
+        
+                    <h3>Varieties</h3>
+                    <p>cherry, West Indian The fruit of a small bush native to the tropical and sub‐tropical regions of America, Malpighia punicifolia. It is the richest known source of vitamin C; the edible portion of the ripe fruit contains 1000 mg, and the green fruit 3000 mg/100 g. Also known as Barbados or Antilles cherry, acerola</p>
+                    <h3>Soil and climate</h3>
+                        <p>Performs best on free-draining clay, loam and sand soils of a moderately acid to alkaline nature, generally with a pH of 5.5 to 8.5, and on sites with full to partial sun exposure. It has poor tolerance to slow-draining or saturated soils and is susceptible to nematode attack, particularly on sandy soils.</p>
+                    <h3>Season</h3>  
+                    <p>May-Nov.; sparsely most of the year</p>
+                `,
+                'Lemon': `
+                <center>
+                    <div  style="display: inline-block; text-align: center; margin-right: 20px;">
+                        <img src="https://tse2.mm.bing.net/th/id/OIP.Zexnd0Iv5b2WBV9w_yzHUAHaJh?pid=ImgDet&rs=1" style="width:200px; height:200px; border-radius: 50%;">
+                        
+                    </div>
+                    <div  style="display: inline-block; text-align: center; margin-right: 20px;">
+                        <img src="https://tse1.mm.bing.net/th/id/OIP.R8opxsP57ICrysXrXdiEhgHaHa?pid=ImgDet&w=1200&h=1200&rs=1" style="width:200px; height:200px; border-radius: 50%;">
+                        
+                    </div>
+                </center>
+        
+                    <h3>Varieties</h3>
+                    <p>Popular varieties of Eureka lemons  and Corona Foothill.</p>
+                    <h3>Soil and climate</h3>
+                        <p>The sub-tropical climate is the best suited for lemon plant growth and good development. Temperature below -4° C is harmful for the young plants. Soil temperature around 24° C to 25° C seems to be optimum for root growth.Dry and arid climates/conditions coupled with well-defined summer having low rainfall (ranging from 75cm to 250cm) are most favorable for the growth of the crop.</p>
+                        <h3>Season</h3>  
+                    <p>Lemon season in India There are three lemon seasons in a year, namely Ambe, Mrig and Hasta. During Ambe season, flowering takes place from January to February and fruit formation happens in April. In the Mrig season, orchards bloom during June and July and the harvest happens in October.</p>
+                `,
+                'Apricot': `
+                <center>
+                    <div  style="display: inline-block; text-align: center; margin-right: 20px;">
+                        <img src="https://th.bing.com/th/id/R.deb4801116713551f6cb3ca77f46221b?rik=DCNExQr4HfzRDQ&pid=ImgRaw&r=0" style="width:200px; height:200px; border-radius: 50%;">
+                        
+                    </div>
+                    <div  style="display: inline-block; text-align: center; margin-right: 20px;">
+                        <img src="https://th.bing.com/th/id/R.7e28b2a0fd686858b222bc1c2b0b4315?rik=KGr5fQsP9QLZcA&pid=ImgRaw&r=0" style="width:200px; height:200px; border-radius: 50%;">
+                        
+                    </div>
+                </center>
+        
+                    <h3>Varieties</h3>
+                    <p>There are several different types of apricots that are currently sold around the world. Although all of them taste the same, they come in a range of colors and sizes. Some of the most popular types of apricots are:
+
+Blenheim,
+Castlebrite,
+Tilton,
+Pixie Cut,
+Gold Kist,
+Autumn Royal</p>
+                    <h3>Soil and climate</h3>
+                        <p>Apricots require a temperate climate with cold winters for adequate chilling hours. They typically need between 600 to 900 chilling hours (hours below 45°F or 7°C) to break dormancy and produce fruit. However, they are sensitive to late spring frosts, so the climate should be relatively frost-free during the blooming period.Apricot trees grow well in well-drained, sandy loam or loamy soil. Good drainage is essential to prevent waterlogged roots, which can lead to root rot. They do not tolerate heavy clay soils.</p>
+                        <h3>Season</h3>  
+                    <p>Apricot trees are typically planted in early spring, as soon as the ground is workable and the soil has thawed. This allows the trees to establish their root systems before the hot summer months.</p>
+                `,
+                'Avocado': `
+    
+                <center>
+                    <div  style="display: inline-block; text-align: center; margin-right: 20px;">
+                        <img src="https://th.bing.com/th?id=OIP.JnCMm3camJzDF7sU8JYz4gHaFH&w=300&h=207&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2" style="width:200px; height:200px; border-radius: 50%;">
+                        
+                    </div>
+                    <div  style="display: inline-block; text-align: center; margin-right: 20px;">
+                        <img src="https://tse1.mm.bing.net/th/id/OIP.yZHU0isr5RW2MXw3hT_ePQHaHa?w=194&h=194&c=7&r=0&o=5&dpr=1.3&pid=1.7" style="width:200px; height:200px; border-radius: 50%;">
+                        
+                    </div>
+                </center>
+        
+                    <h3>Varieties</h3>
+                    <p>Some of the varities of avacado are Hass avocados are one of the most common and widely recognized varieties, known for their purplish-black, pebbly skin and creamy texture. Fuerte avocados have smooth, medium-thick skin and a milder flavor. Bacon avocados are pear-shaped with smooth, thin skin and a lighter, milder taste. Zutano avocados are pale green with a mild, slightly watery flavor. Pinkerton avocados are larger and have a slightly rough skin, offering a rich, creamy texture. Gwen avocados have a nutty flavor and are often used in salads and guacamole. Reed avocados are known for their creamy, buttery texture and rich flavor. Lamb Hass is a variant of the Hass avocado, often larger and with a longer harvesting season. Puebla avocados have a pear shape and rich flavor. Sharwil avocados from Hawaii are creamy, nutty, and buttery. Brogden avocados have a pear shape and mild flavor. Wurtz, also known as Little Cado, is a dwarf variety ideal for small gardens, with a small, rough skin.</p>
+                    <h3>Soil and climate</h3>
+                        <p>Avocado trees thrive in regions with a mild, subtropical, or tropical climate. They are sensitive to frost, and temperatures below freezing can damage or kill the trees. Avocado trees are highly sensitive to waterlogged or poorly-draining soils. They require soil that drains well to prevent root rot and other diseases. Sandy loam or loamy soils are generally suitable.</p>
+                    <h3>Season</h3>  
+                    <p>India has diverse climatic regions, and the timing of avocado cultivation may vary significantly from one region to another. It's crucial to consider the specific climatic conditions and local practices in your area when planning avocado cultivation. Consulting with local agricultural experts or horticulturists can provide more precise information tailored to your region.r</p>
+                `,
+                'Strawberry': `
+                <center>
+                    <div  style="display: inline-block; text-align: center; margin-right: 20px;">
+                        <img src="https://th.bing.com/th/id/R.3a64b3e35d29aec501ffe91589b615e0?rik=mI4mHq6pwJ%2fALg&riu=http%3a%2f%2fwww.hdwallpaper.nu%2fwp-content%2fuploads%2f2015%2f10%2fStrawberry_wallpaper_079.jpg&ehk=iFv8CkHWAy6UEBJpFIJx9KlNmv66pvCNeIRcHs0S%2bmo%3d&risl=1&pid=ImgRaw&r=0" style="width:200px; height:200px; border-radius: 50%;">
+                        
+                    </div>
+                    <div  style="display: inline-block; text-align: center; margin-right: 20px;">
+                        <img src="https://th.bing.com/th/id/R.07d1f14bd35939828d8c4a7f5ab955ea?rik=OdLKXupn49OBgA&riu=http%3a%2f%2fimages.wisegeek.com%2fstrawberries.jpg&ehk=fZp4mzvZHJ5Iz973SzdEN9mExVFaa56Web37yUvpETI%3d&risl=&pid=ImgRaw&r=0" style="width:200px; height:200px; border-radius: 50%;">
+                        
+                    </div>
+                </center>
+        
+                    <h3>Varieties</h3>
+                    <p>In India, popular strawberry varieties for cultivation in hilly regions like Himachal Pradesh and Jammu and Kashmir include Chandler, Seascape, Camarosa, Selva, Ozark Beauty, Sweet Charlie, and Diamante. These varieties are chosen for their adaptability to the local climate and their ability to produce flavorful strawberries, making them well-suited for the specific conditions found in these regions.</p>
+                    <h3>Soil and climate</h3>
+                        <p>Strawberries require a cool climate for optimal growth. The best temperature range for strawberries is around 15°C to 30°C (59°F to 86°F) during the growing season. Cool winters and mild summers are ideal.Well-drained, loamy or sandy soil with good aeration is essential to prevent waterlogging, which can harm strawberry plants. Proper drainage is crucial.</p>
+                    <h3>Season</h3>  
+                    <p>In India, the strawberry season generally runs from November until April - with January and February being the best months to enjoy fresh strawberries due to the warmer temperatures. During peak season, the most flavorful and vibrant strawberries are produced. This is when Indian farmers start harvesting strawberries for commercial sale.</p>
+                `,
+
+        };
+    
+        const cropDetailElement = document.getElementById('crop-details');
+        cropDetailElement.innerHTML = cropDetails[cropName];
+    }
+    </script>
+</body>
+</html>-

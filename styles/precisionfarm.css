@@ -1,0 +1,122 @@
+.about {
+    padding: 1rem;
+    text-align: center;
+  }
+  header {
+    background-color: #2b5b84; /* Dark blue header */
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+}
+.back-button {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: #2b5b84; /* Dark blue "Back" button */
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 5px;
+}
+
+  nav ul li a:hover{
+    color: #e37e7e;
+}
+  nav ul li a{
+    text-decoration: none;
+    color: blue;
+    padding: 5px;
+    transition: .3s ease;
+    position: relative;
+}
+
+  
+  .about > h1 {
+    font-size: 3rem;
+    margin: 1rem 0;
+    margin-top:5px;
+  }
+  
+  .about-sub {
+    display: flex;
+    max-width: 800px;
+    margin: 1rem auto;
+    text-align: left;
+  }
+  .about-sub h4{
+    margin-bottom:auto;
+    width:100%;
+    display:initial;
+    
+  }
+  
+  .about-sub > img {
+    margin-top: 5px;
+    max-height: 230px;
+    width: 300px;
+    max-width: 90%;
+    animation: animateimage 1s linear;
+  }
+  
+  @keyframes animateimage {
+    from {
+      transform: translateY(-15px);
+      opacity: 0.5;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  .about-sub .sub-sub-about {
+    padding: 1rem;
+    animation: animatetext 0.5s linear;
+  }
+
+  .about-sub .sub-sub-about h4{
+    margin-bottom: auto;
+  }
+  
+  @keyframes animatetext {
+    from {
+      transform: translateY(15px);
+      opacity: 0.5;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  .about-sub .sub-sub-about p {
+    font-size: 16px;
+    margin-bottom: auto;
+  }
+  .about-sub .sub-sub-about img{
+    /* max-height: 250px; */
+   
+    width: 500px;
+    max-width: 90%;
+    animation: animateimage 1s linear;
+  }
+  
+  .about-sub .gradient-btn {
+    width: 100px;
+    margin-top: 5px;
+    height: 30px;
+    font-size: 12px;
+  }
+  
+  @media screen and (max-width: 600px) {
+    .about-sub {
+      flex-direction: column;
+    }
+  
+    .about-sub:nth-child(3) {
+      flex-direction: column-reverse;
+    }
+  }
+  

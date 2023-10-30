@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DualPath AgriTech</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f7f4; /* Soft greenish-blue background */
+        }
+
+        header {
+            background-color: #2b5b84; /* Dark blue header */
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            padding: 20px;
+        }
+
+        #crop-list {
+            flex-basis: 30%;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        #crop-details {
+            flex-basis: 70%;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        button {
+            cursor: pointer;
+            display: block;
+            margin-bottom: 10px;
+            border: none;
+            padding: 10px;
+            width: 100%;
+            text-align: left;
+            font-size: 18px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #ddd;
+        }
+        table,
+        th,
+        td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+    th {
+        text-align: left;
+    }
+
+        #back-button {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: #2b5b84; /* Dark blue "Back" button */
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+
+        /* Add styles for the heading */
+        #crop-heading {
+            background-color: #70ad47; /* Green heading background */
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            position: relative;
+        }
+
+        /* Add a line under the heading */
+        #crop-heading::after {
+            content: '';
+            display: block;
+            width: 100%;
+            height: 3px;
+            background-color: #ff5733; /* Red line color */
+            position: absolute;
+            bottom: 0;
+            left: 0;
+        }
+
+        /* Add individual button colors */
+        #crop-list button:nth-child(1) {
+            color: #0d0d0c;
+            background-color: #f0f0f0; /* Green for Mango */
+        }
+        
+        #crop-list button:nth-child(2) {
+            color: #000000;
+            background-color: #fff; /* Yellow for Banana */
+        }
+        
+        #crop-list button:nth-child(3) {
+            color: #020202;
+            background-color: #fff; /* Brown for Sapota */
+        }
+        
+        #crop-list button:nth-child(4) {
+            color: #000000;
+            background-color: #fff; /* Thick Green for Guava */
+        }
+        body {
+     top: 0px !important;
+    }
+
+    body > .skiptranslate > iframe.skiptranslate {
+     display: none !important;
+     visibility: hidden !important;
+    }
+       
+    </style>
+</head>
+<body>
+    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <script>
+     function googleTranslateElementInit(){
+         new google.translate.TranslateElement(
+             {pageLanguage:'en'},
+             'google_translate_element'
+         );
+     }
+    </script>
+    <button id="back-button" onclick="goBack()">Back</button>
+    <header>
+        <h1 style="font-size: 36px;">DualPath AgriTech</h1>
+        <div id="google_translate_element"></div>
+    </header>
+    <div class="container">
+        <div id="crop-list">
+            <h2 id="crop-heading">Fruiting and Leguminous Vegetables</h2>
+            <button onclick="showCropDetails('Cucumber')">Cucumber</button>
+            <button onclick="showCropDetails('Pumpkin')">Pumpkin</button>
+            <button onclick="showCropDetails('Tomato')">Tomato</button>
+            <button onclick="showCropDetails('Eggplant')">Egg plant</button>
+           
+            <!-- Add more fruit crops here with respective colors -->
+        </div>
+        <div id="crop-details">
+            <!-- Crop details will be displayed here -->
+        </div>
+    </div>
+
+    <script>
+        function showCropDetails(cropName) {
+            const cropDetails = {
+                'Mango': 'Mango is a tropical fruit., ',
+                'Banana': 'Banana is a tropical fruit...',
+                'Sapota': 'Sapota is a tropical fruit...',
+                'Guava': 'Guava is a tropical fruit...',
+                'Grapes': 'Grapes are a sub-tropical fruit...',
+                'Amla': 'Amla is a tropical fruit...',
+                'Pomegranate': 'Pomegranate is a tropical fruit...',
+                'Black Plum': 'Black Plum is a tropical fruit...'
+                // Add more crop details here
+            };
+
+            const cropDetailElement = document.getElementById('crop-details');
+            cropDetailElement.innerHTML = cropDetails[cropName];
+        }
+
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+
+    <script>
+        function showCropDetails(cropName) {
+            const cropDetails = {
+                'Cucumber': `
+                <center>
+                    <div  style="display: inline-block; text-align: center; margin-right: 20px;">
+                        <img src="./images/cucumber.jpg" style="width:700px; height:auto">
+                        
+                    </div>
+                    
+                </center>
+        
+                    <h3>Cucumber Growing</h3>
+                    <p>The botanical name of cucumber is Cucumis sativus. Cucumbers are originated in India. It is a climbing plant which is used as summer vegetable throughout in India. The cucumber fruit is eaten raw or is served as a salad or cooked as a vegetable. The seeds of cucumber are used for oil extraction which is good for body and brain. Cucumbers contain 96% water which is good in summer season. The plants are large sized, leaves are hairy and are triangular in shape and flowers are yellow in color. Cucumber is an excellent source of Mb (Molybdenum) and Vitamin K. Cucumber is used to cure skin problems, kidney and heart problems and is used as alkalizer.
+</p>
+
+                    <h3>SOIL</h3>
+                    <p>It can be sown in variety of soils ranging from sandy loam to heavy soil. But a loamy soil which is rich in organic matter and has well drainage system is best for the cucumber farming. The pH ranging from 6-7 is suited best for cucumber farming.</p>
+
+                    <h3>Land Preparation</h3>
+                    <p> For cucumber plantation, it requires well prepared and weed free field. To bring soil to fine tilth, 3-4 ploughings must be done before planting. FYM such as cow dung is mixed with soil to enrich the field. Then nursery beds are prepared having width of 2.5m and at the distance of 60cm.</p>
+                    <h3>Sowing</h3>
+                    <p>It is sown in the month of February-March. </p>
+                    <p>Sow two seeds per place of bed which is 2.5m wide and use spacing of 60cm between seeds.</p>
+                    <p>Seeds are sown at the depth of 2-3cm.</p>
+                    <p>Low tunnel technology: This technology is used to produce early yield of cucumber in early summer. It helps to protect the crop from cold season i.e. in the month of December and January. Beds of 2.5m width are sown in the month of December. Seeds are sown both sides of the bed at the distance of 45cm. Before sowing supportive rods of 45-60cm length are fixed in the soil. Cover the field with plastic sheet (100 gauge thickness) with the help of support rods. Plastic sheet should be removed mainly in the month of February when temperature is suitable outside.</p>
+                    <h3>Seed</h3>
+                    <p>Seed rate of 1.0 kg is sufficient for one acre of land.</p>
+                    <p>Before sowing seeds, treat them with the suitable chemical to protect them from disease and pests and to increase viability. Seeds are treated with Captan@2gm before sowing. </p>
+                    <h3>WEED CONTROL</h3>
+                    <p>Weed can be controlled by hand-hoeing and also controlled by chemically, use glyphosate@1.6litre per 150 litre of water. Use glyphosate only on weeds not on crop plants.</p>
+                    <h3>IRRIGATION</h3>
+                    <p>In summer season it requires frequent irrigation and in rainy season it does not require any irrigation. In total it requires 10-12 irrigations. Pre-irrigation is required before sowing then subsequent irrigation is required after 2-3 days of sowing. After second sowing, the crops are then irrigated at the interval of 4-5 days. Drip irrigation is very useful for this crop.</p>
+                    <h3>HARVESTING</h3>
+                    <p>Plants start yielding in about 45-50 days after sowing. Mainly 10-12 harvestings can be done. Harvesting is mainly done when the seed of cucumber are soft and the fruits are green and young. Harvesting is done with the help of sharp knife or any sharp object. It gives an average of 33-42qtl/acre of yield.</p>
+                    <h3>SEED PRODUCTION</h3>
+                    <p>Brown color fruits are best for seed production. For seed extraction, fruit pulp is taken out in fresh water for 1-2 days for the easy separation of seeds. The seeds are then rubbed with hands and as a result heavy seeds will settle down in water and then they are preserved for further use.</p>
+<h3>Transitioning Cucumbers to Low Light Conditions</h3>
+<p>Cucumber fruit production and quality are affected by lower light levels of late fall in northern locations.</p>
+<p>Lower light intensity levels and shorter photoperiods in the fall result in reductions in photosynthesis and plant growth.Selection of trellising sytems, cucumber varieties, environmental conditions, and greenhouse design can help fall production</p>
+<p>The cumulative amount of light that a plant receives depends on the light intensity and photoperiod (how much and for how long).2 Light intensity is the number of photons hitting a surface. In greenhouse operations, this is usually measured as moles of light per square meter (mol/m2 ) or micromoles of light per square meter (µmol/m2 ). This is an instantaneous measure of light intensity, a snapshot of the amount of light hitting a surface at any given time. For a cumulative measure of light, we add up the amount of light hitting a surface over a specific amount of time, such as per second (µmol/m2 /s) or per day (mol/m2 /d). The daily (24-hour) measurement is called the daily light integral </p>
+<p>With the vertical growing systems use in greenhouse cucumber production, the upper canopy starts to shade the lower canopy as the plant grows toward the overhead wire. As canopies develop, the lower leaves lose photosynthetic capacity as they become shaded by the upper leaves.10 The amount of shading will depend on the design of the system, high-wire vs. umbrella. In high-wire systems, the vines are periodically lowered, and the lower, less productive leaves are removed. Plants in highwire systems tend to have smaller leaves and canopies are usually more open, leading to less self-shading that occurs with umvrella systems.13 So, low light levels may have less of an effect in high-wire systems.</p>
+<p>Adjusting environmental factors that push plants toward generative growth can also be used to help plants adapt to low light levels. Temperature, CO2 concentrations, humidity levels, irrigation frequency and duration, and fertilization levels all interact to influence the balance between vegetative and generative growth. Increased concentrations of CO2 can maintain growth rates at low light levels.</p>
+<p>Greenhouse design also affects light levels inside the house. Light level reductions of about ten percent are seen with each layer of covering. However, the amount of reduction also depends on the material used for the cover and the angle of incident light. Glass, D-poly, and acrylic materials are commonly used to cover houses. Using a material that allows the greatest transmission of light that is used for photosynthesis (blue, red, and far-red light) will help maintain plant growth, fruit production, and fruit quality. The highest dry matter production levels are often seen in houses covered with glass.</p>
+ 
+                    
+
+
+                `,
+                'Pumpkin': `
+                <center>
+                    <div  style="display: inline-block; text-align: center; margin-right: 20px;">
+                        <img src="./images/pumkin.jpg" style="width:300px">
+                      
+                    </div>
+                    
+                </center>
+        
+                   
+                    <p>It is a popular vegetable crop in India which is grown in rainy season. It is also known as "HalwaKaddu” or “Kaddu” in hindi and it belongs to cucurbitaceae family. India is the second largest producer of pumpkin. It is used for cooking purpose and is used to make sweets. It is good source of Vitamin A and potassium. Pumpkin helps to boost eye vision, lowers blood pressure and has antioxidant properties. Its leaves, young stems, fruit juice and flowers contain medicinal properties.</p>
+                    <h3>Soil and Land Preparation</h3>
+                    <p> It requires loamy soil having good drainage system and is rich in organic matter. Soil pH of 6-7 is optimum for pumpkin cultivation.</p>
+                    <p>Well prepared land is required for pumpkin farming. To bring the soil to fine tilth, ploughings with local tractor is required.</p>
+                    <h3>Sowing</h3>
+                    <p>February-March and June-July is an optimum time for seed sowing.</p>
+                    <p>Sow two seeds on per hill and use spacing of 60cm. For hybrid varieties, sow seeds on both side of bed and use spacing of 45cm.</p>
+                    <p>Seeds are sown 1 inch deep in the soil.
+</p>
+                    
+                    <h3>Seed rate </h3>
+                    <p>Seed rate of 1kg seed is sufficient for one acre land.
+</p>
+                    <p>Treatment with Benlate or Bavistin @2.5 gm/kg of seed is used to cure from soil borne diseases.</p>
+                    <h3>Weed Control</h3>
+                    <p>To control the weeds, frequent weeding or earthing up operation is required. Weeding is done with the help of hoe or by hands. First weeding is done after 2-3 weeks of seed sowing. In total 3-4 weedings are required to make the field weed free.</p>
+                    <h3>Irrigation</h3>
+                    <p>Proper irrigation at proper intervals of time is required. Immediate irrigation is required after seed sowing. Depending upon the season, subsequent irrigations at the interval of 6-7 days is required. In total 8-10 irrigation are required.</p>
+                   
+                    <h3>Harvesting</h3>
+                    <p>Harvesting is mainly done when skin of the fruits turns pale brown in color and the inner flesh becomes golden yellow in color. Mature fruits having good storage capacity therefore they can be used for long distance transportation. Harvesting of immature fruits is also done for sale purpose. </p>
+                    <h3>SEED PRODUCTION</h3>
+                    <p>Keep isolation distance of 1000m for foundation and 500m for certified seed production from other varieties of pumpkin. Remove diseased plants from field. When fruits are mature i.e. they changes their color into dull. Then they are crushed with hands in fresh water and then separate seeds from pulp. Seeds which are settled in bottom are collected for seed purpose.</p>
+                    <h3>References for modern harvesting pumpkin cultivation</h3>
+ <a href="https://www.youtube.com/watch?v=Z-0EqsTIguc">https://www.youtube.com/watch?v=Z-0EqsTIguc 
+            `,
+            'Tomato': `
+            <center>
+                <div  style="display: inline-block; text-align: center; margin-right: 20px;">
+                    <img src="./images/tomato.jpg" style="width:500px;">
+    
+                </div>
+                
+            </center>
+    
+                <p>Tomato is originated in Peru of South America. It is important commercial vegetable crop of India. It is the second most important crop of world after potato. Fruits are eaten raw or in cooked form. It is rich source of vitamin A, C, potassium and minerals. It is used in soup, juice and ketch up, powder. The major tomato producing states are Bihar, Karnataka, Uttar Pradesh, Orissa, Maharashtra, Andhra Pradesh, Madhya Pradesh and West Bengal. In Punjab state, Amritsar, Ropar, Jalandhar, Hoshiarpur are tomato growing districts.</p>
+                <h3>Soil Requirement</h3>
+               <p>It can be grown in varied type of soil ranging from sandy loam to clay, black soil and red soil having proper drainage. It gives best result when grown under well drained sandy soil with high organic content. For good growth pH of soil should be 7-8.5. It can tolerate moderate acidic and saline soil. Avoid cultivation in high acidic soils. For early crops, light soil is beneficial where for heavy yields clay loam and silt-loam soils are useful.</p>
+                <h3>Land Preparation</h3>
+                <p>For tomato plantation, it required well pulverise and levelled soil. To bring soil to fine tilth, plough land for 4-5times, then planking is done to make soil level. At time of last ploughing add well decomposed cow dung and Carbofuron@5kg or Neem cake@8kg per acre should be applied. Transplantation of tomato is done on raised bed. For that prepared raised bed of 80-90cm width. To destroy harmful soil borne pathogen, pest and organism, soil solarization is carried out. It can be done by using transparent plastic film as mulch. This sheet absorb radiation and thus increases soil temperature and kill pathogen.</p>
+                <h3>Sowing</h3>
+                <p>For northern state, tomato cultivation for spring season is done in late November and transplanted in second fortnight of January. For autumn crop, sowing is done in July - August and transplanted in August - September. In hilly areas sowing is done in March- April and transplantation is done in April -May.</p>
+                <p>Depending upon variety use and its growth habit, use spacing of 60x30cm or 75x60cm or 75x75cm. In Punjab, for dwarf variety use spacing of 75cm x 30cm and for rainy season use spacing of 120-150 x 30cm.
+</p>
+                <pIn nursery sow seeds at depth of 4cm and then covered with soil.  </p>
+                <p>Transplanting of seedling in main field.</p>
+               <h3>SEED</h3>
+               <p>Use seed rate of 100gm for preparing seedling for sowing in one acre land.
+</p>
+               <p>To protect crop from soil borne disease and pest, before sowing do seed treatment with Thiram@3gm or Carbendazim @ 3gm of seeds. After chemical treatment, treat seed with Trichoderma@5gm/kg of seeds.  keep it in shade. And use it for sowing.</p>
+               <h3>WEED CONTROL</h3>
+               <p>Do frequent weeding, hoeing and earthing up and keep field weed free till 45 days. If weed left uncontrolled then it will reduce crop yield upto 70-90%. Two to three days of after transplantation take spray of Fluchloralin (Basalin) @800ml/200Ltr water as pre-emergence weedicide. If weed intensity is high, take post emergence spray of Sencor@300g/acre. Mulching is also an effective way to reduce soil temperature along with weed control.</p>
+               <h3>IRRIGATION</h3>
+               <p>In winter, apply irrigation with interval of 6 to 7days and in summer month, apply with interval of 10-15days depending upon soil moisture. Period of drought follow by heavy watering leads to cracking of fruits. Flowering stage is critical for irrigation, water stress during this stage can leads to flower drop and adversely affecting fruiting and productivity. According to various researches, it is found that, half inch irrigation at every fortnight causes maximum penetration of roots and thus gives high yield.
+
+</p>
+               <h3>HARVESTING</h3>
+               <p> Plant starts yielding by 70days after transplantation. Harvesting is done depending upon purpose like for fresh market, long distance transport etc. Mature green tomatoes, 1/4th fruits portion gives pink color are harvested for long distance markets. Almost all fruits turn into pink or red color but having firm flesh are harvested for local markets. For processing and seed extraction purpose, fully ripe fruits with soft flesh are used.</p>
+               <h3>POST-HARVEST</h3>
+               <p> After harvesting, grading is done. Then fruits are packed in bamboo baskets or crates or wooden boxes. To increase self-life of tomato during long distance transport pre-cooling is carried out. From ripen tomatoes several products like Puree, syrup, juice and ketch up are made after processing.</p>
+        <h3><center>Hydroponics Tomato</center></h3>
+        <div  style="display: center; text-align: center; margin-right: 20px;">
+                    <img src="./images/tomato_con.jpg" style="width:500px;">
+                </div>
+                <h3>how to grow hydroponic tomatoes ?</h3>
+                <ul>
+                    <li><b>Nutrient film technology or NFT:</b>involves the use of a thin film of nutrient solution that flows over the roots of the plants. The roots are generally exposed to air and the nutrient solution is recycled.</li>
+                    <li><b>Drip irrigation:</b>it is a system that delivers nutrient solution to the plants in the form of drips. A timer is set that adjust the frequency of drips and excess solution is collected and recirculated.</li>
+                    <li><b>Ebb and flow:</b>most popular way to produce tomato hydroponics. In this, the plants are placed in containers which are filled with a growing media and the nutrient solution periodically flows into the containers. The solution is then drained back into the reservoir.</li>
+                    <li><b>Aeroponics:</b> a bit expensive method where the roots of the plants are suspended in the air and nutrient rich solution or water is misted or sprayed over them.</li>
+                    <li><b>Dutch bucket system:</b>in this system, the plants are settled in buckets filled with a growing medium and a support structure such as perlite. It is similar to ebb and flow system and is a space saving technique.</li>
+
+                    </ul>
+                    <h3>The Dutch bucket system step by step</h3>
+                    <ul>
+                        <li>Materials required: buckets with lid (5-gallon capacity ideally), a growing medium such as perlite, a nutrient solution, a submersible pump and tomato plants.</li>
+                        <li>Nutrient reservoir: the system is set up by connecting to a reservoir which contains the nutrient solution. The solution is pumped from the reservoir to the buckets with the help of submersible pump which is turned on for nutrient supply.</li>
+                        <li>Planting: the tomato plants are then placed in the buckets with growing medium. Each bucket is designed with a hole at the bottom to drain out excess nutrient solution which then flows back into the reservoir.</li>
+                        <li>Irrigation: as the solution is supplied to the top of each bucket, it flows down the growing medium and around the plant’s roots. This provides the plants with nutrients and water they need to grow properly.</li>
+                        <li>Monitoring the system: check the pH and EC levels of nutrient solution regularly. Check for any deficiencies or pests.</li>
+                        </ul>
+                    <p>Hydroponic tomato farming is a growing industry that have both benefits and challenges. On the positive side, hydroponic systems can produce higher yields, less water and gives higher-quality produce. However, hydroponic tomato farming also requires a significant investment in terms of both time and money as well sound technical knowledge. Despite these challenges, many farmers and entrepreneurs see hydroponic tomato farming as a promising enterprise, particularly in areas with limited land or poor soil quality. So, it is more likely that we will see widespread adoption of this system in the near future when there will be scarcity of natural resources for traditional farming.</p>
+
+                   
+        `,
+            'Eggplant': `
+            <center>
+                <div  style="display: inline-block; text-align: center; margin-right: 20px;">
+                    <img src="./images/eggplant.jpg" style="width:500px;">
+    
+                </div>
+                
+            </center>
+    
+                <p>Eggplants (Solanum melongena) are warm-season vegetables are treated by most North American gardeners as annuals. Also called aubergine and brinjal in some countries, eggplants have a tropical and subtropical heritage, so they do require relatively high temperatures, similar to tomatoes and peppers (which, like eggplants, are in the Nightshade family). EGgplant grow fastest when temperatures are between 70° and 85°F (21° and 30°C)—and very slowly during cooler weather.</p>
+                <h3>PLANTING</h3>
+                <p>Eggplant grows best in a well-drained sandy loam or loam soil that is fairly high in organic matter. To improve soil fertility, mix 1 inch of well-rotted manure, compost, or a general fertilizer such as 5-10-5 throughout the planting bed about a week before planting. (Apply 2 to 3 pounds per 100 square feet. Or, apply 1¼ pounds of 5-10-5 per 10 feet of row when the row spacing is 4 feet.) Soil pH should be between 5.8 and 6.5 for best growth.</p>
+        <h4>When to Plant</h4>
+        <ul>
+            <li>Start seeds indoors, sowing them ¼ of an inch deep in flats or peat pots.</li>
+            <li>After the risk of the last spring frost has passed and daytime temperatures are 70° to 75°F (60° to 65°F at night), set seedlings in holes 24 to 30 inches apart in rows 3 feet apart. Use a covering of black plastic mulch to warm soils before setting out transplants if soil temperatures aren’t yet high enough.</li>
+            <li>Immediately after planting (in ground or pot), set 24-inch-high stakes 1 to 2 inches from each plant or use cages to provide support and avoid disturbing the soil or roots later. Eggplant will fall over when laden with fruit.</li>
+            <li>After planting, water well. Add a layer of mulch to retain moisture and suppress weeds.</li>
+            <li>If you live in a cold climate, consider using row covers to keep the young eggplants warm and sheltered. Open the ends of the row covers on warm days so that bees may pollinate the eggplants’ flowers.</li>
+</ul>
+            <h3>GROWING</h3>
+<p>Water well to moisten the soil to a depth of at least 6 inches so the soil is moist but never soggy. Consistent watering is best, and a soaker hose or drip system at ground level is ideal. 
+The critical period for moisture is during fruit set and fruit development. Strangely shaped eggplants result from inconsistent or inadequate watering.
+Mulching can help to provide uniform moisture, conserve water and reduce weeds.
+Apply a balanced fertilizer every 2 weeks or so.</p>
+<p>For bigger fruits, restrict to five or six per plant, pinching off the extra flowers that develop.
+Eggplant may fall over once loaded with fruit! Be sure to stake tall plants or use a cage to keep the plants upright. If growing eggplant in containers, stake the stems before the fruit forms.</p>
+<p>For a bushier plant, pinch out the terminal growing points, the central points on a plant from which new shoots and leaves grow. Look for the newest (and usually smallest) leaves at the center of the plant and pinch out the bud forming there.
+Eggplants are susceptible to temperature fluctuations: Cool nights (below 55°F/13°C) or hot days (above 95°F/35°C) can cause poor fruiting. Cover plants on cold nights and provide shade (e.g., a beach umbrella) on hot, sunny days. Cold also impairs ripening.</p>
+<h3>Harvesting</h3>
+<ul>
+    <li>Harvest eggplant 65 to 80 days after transplanting, depending on the variety. When starting from seed, expect 100 to 120 days to maturity. July, August, and September (even into October) are all harvest months for eggplant, depending on where you live and the variety you planted.</li>
+    <li>Eggplant tastes best when harvested young as soon as it’s dark and glossy purple. Fruits are ripe when their skin doesn’t rebound to gentle pressure from your finger.  If you cut into an eggplant and find an abundance of brown seeds, it’s already too late.</li>
+    <li>Harvest early and often, and the plant will be quite prolific. Once ready, check on your eggplants every 2 to 3 days.</li>
+    <li>Japanese eggplant may be ready to harvest when the size of a finger or hot dog.
+When harvesting, do not pull the fruit (it won’t come off). With a sharp knife, cut through the tough stem above the green cap, or calyx, on the top. The calyx can be prickly, so want to wear gloves.</li>
+<li>You can cut these plants back like peppers if your season is long enough for a second crop.</li>
+</ul>
+<h3>Storage</h3>
+<p>Eggplants can be stored for up to 2 weeks in humid conditions no lower than 50°F (10°C).</p>
+
+        `,
+            
+    
+        };
+    
+        const cropDetailElement = document.getElementById('crop-details');
+        cropDetailElement.innerHTML = cropDetails[cropName];
+    }
+    </script>
+</body>
+</html>

@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DualPath AgriTech</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f7f4; /* Soft greenish-blue background */
+        }
+
+        header {
+            background-color: #2b5b84; /* Dark blue header */
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            padding: 20px;
+        }
+
+        #crop-list {
+            flex-basis: 30%;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        #crop-details {
+            flex-basis: 70%;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        button {
+            cursor: pointer;
+            display: block;
+            margin-bottom: 10px;
+            border: none;
+            padding: 10px;
+            width: 100%;
+            text-align: left;
+            font-size: 18px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #ddd;
+        }
+        table,
+        th,
+        td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+    th {
+        text-align: left;
+    }
+
+        #back-button {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: #2b5b84; /* Dark blue "Back" button */
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+
+        /* Add styles for the heading */
+        #crop-heading {
+            background-color: #70ad47; /* Green heading background */
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            position: relative;
+        }
+
+        /* Add a line under the heading */
+        #crop-heading::after {
+            content: '';
+            display: block;
+            width: 100%;
+            height: 3px;
+            background-color: #ff5733; /* Red line color */
+            position: absolute;
+            bottom: 0;
+            left: 0;
+        }
+
+        /* Add individual button colors */
+        #crop-list button:nth-child(1) {
+            color: #0d0d0c;
+            background-color: #f0f0f0; /* Green for Mango */
+        }
+        
+        #crop-list button:nth-child(2) {
+            color: #000000;
+            background-color: #fff; /* Yellow for Banana */
+        }
+        
+        #crop-list button:nth-child(3) {
+            color: #020202;
+            background-color: #fff; /* Brown for Sapota */
+        }
+        body {
+     top: 0px !important;
+    }
+
+    body > .skiptranslate > iframe.skiptranslate {
+     display: none !important;
+     visibility: hidden !important;
+    }
+       
+    </style>
+</head>
+<body>
+    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <script>
+     function googleTranslateElementInit(){
+         new google.translate.TranslateElement(
+             {pageLanguage:'en'},
+             'google_translate_element'
+         );
+     }
+    </script>
+    <button id="back-button" onclick="goBack()">Back</button>
+    <header>
+        <h1 style="font-size: 36px;">DualPath AgriTech</h1>
+    <div id="google_translate_element"></div>
+    </header>
+    <div class="container">
+        <div id="crop-list">
+            <h2 id="crop-heading">Cereals and Grains</h2>
+            <button onclick="showCropDetails('Wheat')">Wheat</button>
+            <button onclick="showCropDetails('rice')">Rice</button>
+            <button onclick="showCropDetails('maize')">Maize</button>
+           
+            <!-- Add more fruit crops here with respective colors -->
+        </div>
+        <div id="crop-details">
+            <!-- Crop details will be displayed here -->
+        </div>
+    </div>
+
+    <script>
+        function showCropDetails(cropName) {
+           
+
+            const cropDetailElement = document.getElementById('crop-details');
+            cropDetailElement.innerHTML = cropDetails[cropName];
+        }
+
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+
+    <script>
+        function showCropDetails(cropName) {
+            const cropDetails = {
+                'Wheat': `
+                <center>
+                    <div  style="display: inline-block; text-align: center; margin-right: 20px;">
+                        <img src="./images/wheat.jpg" style="width:700px; height:auto">
+                        
+                    </div>
+                    
+                </center>
+        
+                   
+                    <p>Wheat is grown on 13 percent of the cropped area of India. Next to rice, wheat is the most important food-grain of India and is the staple food of millions of Indians, particularly in the northern and north-western parts of the country.                                                                                                                    
+It is rich in proteins, vitamins and carbohydrates and provides balanced food. India is the fourth largest producer of wheat in the world after Russia, the USA and China and accounts for 8.7% of the world’s total production of wheat.
+
+</p>
+
+                    <h3>SOIL</h3>
+                    <p>Soils with a clay loam or loam texture, good structure and moderate water holding capacity are ideal for wheat cultivation. Heavy soil with good drainage is suitable for wheat cultivation under dry conditions.</p>
+
+                    <h3>LAND PREPARATION</h3>
+                    <p>After harvest of previous crop, the field should be ploughed with disc or mould board plough. Field is usually prepared by giving one deep plough with iron plough followed by two or three times local plough and planking. Carried out plough in evening time and kept furrow open whole night to absorb some moisture from dew. Planking should be done after each plough early in the morning.</p>
+                    
+                    <h3>SOWING</h3>
+                    <P>Wheat must be sown at the optimum time. Delayed sowing causes a gradual decline in the yield of wheat. The time of sowing is 25 October – November.</P>
+                    <P>For normal sown crop a spacing of 20 - 22.5 cm between rows is recommended. When sowing is delayed a closer spacing of 15-18 cm should be adopted.</p>
+                        <p>The sowing depth should be 4-5 cm.</p>
+                    <h3>SEED</h3>
+                    <p>Use seed rate of 45 kg per acre. The seed should be cleaned and graded thoroughly before sowing.
+</p>
+<h3>WEED CONTROL</h3>
+<p> Preferred because of less labour requirement and no mechanical damage during manual weeding. As pre-emergence, apply Pendimethalin (Stomp 30 EC) @1 Ltr at 0-3 days before sowing in 200 litres of water/acre. Use 2, 4-D @250 ml in 150 ltr water for controlling broad leaf weeds.</p>
+<h3>IRRIGATION</h3>
+<p>The number of irrigations required will vary depending upon soil type, water availability etc. Crown root initiation and heading stages are the most critical to moisture stress. For dwarf high yielding varieties, give pre sowing irrigation. For heavy soils, four to six irrigations are required whereas for light soils 6-8 irrigations are necessary. Under limited water supply apply irrigation only at critical stage. When water is available for only one irrigation, then apply at crown root initiation stage. When two irrigations are available then apply at crown root initiation and flowering stage. Where three irrigations are possible, 1st irrigation should be given at CRI stage and 2nd at late jointing (boot) and 3rd at milking stage. CRI stage is most important stage for irrigation. It has been found that each week delay in 1st irrigation from CRI stage results in yield reduction of 83-125kg per acre.</p>
+<p>First irrigation should be given 20-25 days after sowing. This is crown root initiation stage and moisture stress at this stage will lead to yield loss. At tillering stage within 40-45 days after sowing, apply second irrigation. Third irrigation within 60-65 DAS at late jointing stage. At flowering stage (within 80-85 days) give fourth irrigation. Fifth irrigation at dough stage (within 100-105 DAS).
+ </p>
+ <h3>HARVESTING</h3>
+ <p>Harvesting of high yielding dwarf variety is carried out when leaves and stem turn yellow and become fairly dry. To avoid loss in yield crop should be harvested before it is dead ripe. Timely harvesting is needed for optimum quality and consumer acceptance. The right stage for harvesting is when moisture in grain reaches to 25-30%. For manual harvesting use serrate edge sickles. Combines harvester are also available which can do harvesting, threshing and winnowing of wheat crop in single operation.</p>
+ <h3>POST-HARVEST</h3>
+ <p>After manual harvesting, dried crops for three to four days on threshing floor so that moisture content of grain comes down to 10-12% and then threshing is done by trampling bullocks or thresher attached to bullocks. Direct sun drying and excessive drying should be avoided and the grains should be packed in sound clean gunny bags to minimize the losses. The Hapur tekka is a cylindrical rubberized cloth structure supported by bamboo poles on a metal tube base, and has a small hole in the bottom through which grain can be removed. Large scale grain storage is done in CAP (Cover and Plinth) and silos. To keep away several pest and disease during storage, use 1% malathion solution for disinfection of gunny bags. Properly clean the storage house, remove the cracks and fill the rat burrows with cement. White wash the storage house before storing grains and spray Malathion 50 EC @ 3 Ltr/100 Sq. meters. Place the heap of bags 50 cm away from wall and in between the heaps give some gaps. Also there should be a gap between the roof and the bags.</p>
+<h3>AI and Wheat Cultivation: A Perfect Synthesis</h3>
+<p> The potential of AI in the agricultural sector is countless, but how can it concretely help grain farmers? Here are some ways in which AI is adding value:</p>
+<ul>
+    <li><b>Prediction of Agronomic Conditions:</b>Using machine learning algorithms, AI can analyse historical data on climate, soil and other variables to predict optimal conditions for growing wheat. This enables farmers to make informed decisions about sowing and other agronomic practices.</li>
+    <li><b> Optimisation of Fertiliser Use:</b>The AI examines data on soil and plant nutritional needs to offer precise guidance on fertiliser dosages. This not only maximises nutrient uptake, but also reduces the environmental impact of excessive fertiliser use.</li>
+    <li><b>Early Disease Detection:</b>Artificial intelligence algorithms can detect early signs of disease or infestation in crops. By constantly monitoring through sensors and images, AI promptly signals the presence of problems, enabling timely treatments.</li>
+    <li><b>Irrigation Management:</b>AI analyses crop water requirements and weather information to optimise irrigation schedules, preventing water wastage and minimising the risk of water stress or excessive moisture.</li>
+    <li><b>Crop Monitoring by Drones and Sensors:</b>Instruments such as drones and sensors collect detailed data on crops. AI processes this data to monitor plant health, detect any problems and guide necessary interventions.</li>
+
+
+                    
+
+
+                `,
+                'rice': `
+                <center>
+                    <div  style="display: inline-block; text-align: center; margin-right: 20px;">
+                        <img src="./images/rice.jpg" style="width:500px">
+                   
+                    </div>
+                    
+                </center>
+        
+                   
+                    <p>Rice is the most important food crop of India covering about one-fourth of the total cropped area and providing food to about half of the Indian population. Punjab has made tremendous progress in rice productivity and production during the past 45 years. Due to use of high yielding varieties and new technology Punjab has given the title of "Rice Bowl of India".
+                    </p>
+                    <h3>Soil and Land Preparation</h3>
+                    <p>It can be grown on a variety of soils with low permeability and pH varying from 5.0 to 9.5. Sandy loam to loamy sand to silty loam to clay loams, silty to clayey loam soils with low permeability, free of water logging and sodicity are considered best for paddy cultivation.</p>
+                    <p>Before sowing, soak them in 10 Ltr water containing, Carbendazim@20gm+ Streptocycline@1gm for 8 to 10 hour before sowing. After then dry seeds in shade. And then use for sowing.</p>
+                    <h3>Sowing</h3>
+                    <p>20 may to 5 june is the optimum time for sowing </p>
+                    <p>For normal sown crop a spacing of 20 - 22.5 cm between rows is recommended. When sowing is delayed a closer spacing of 15-18 cm should be adopted.</p>
+                    <p>he seedlings should be transplanted at 2 to 3 cm depth. Shallow planting gives better yields. </p>
+                   
+                    <h3>Weed Control </h3>
+                    <p>Use Butachlor 50 EC @ 1200 ml/acre or Thiobencarb 50 EC @ 1200 ml or Pendimethalin 30 EC @ 1000 ml or Pretilachlor 50 EC @ 600 ml per acre as pre-emergence herbicides, 2 to 3 days after transplanting. Mix any one of these herbicides in 60 kg of sand per acre and broadcast uniformly in 4-5 cm deep standing water.
+
+For broadleaf weed control, apply Metsulfuron 20 WP @ 30 gm/acre in 150 Ltr water as post emergence, 20-25 days after transplanting. Before spray, drained out the standing water from the field and apply irrigation one day after spray.</p>
+                    <h3>Irrigation</h3>
+                    <p>Keep field flooded up to two weeks after transplanting. When all water gets infiltrated two day after apply irrigation in field. Depth of standing water should not exceed 10 cm. While doing intercultural and weeding operation, drain out excess water from field and irrigate field after completion of this operations. Stop irrigation about a fortnight before maturity to facilitate easy harvesting.</p>
+                   
+                    <h3>Harvesting</h3>
+                    <p>Reap the yield once the panicles are developing fully as well as the crops get changed significantly yellow. The yield is generally harvested manually by sickles or by blend harvester. The harvested crops, tied up into compact bundles, strike it against really hard surface to split the grains from straw, accompanied by winnowing.</p>
+                    <h3>POST-HARVEST</h3>
+                    <p>The post-harvest method includes some procedures which include the interval from harvest to utilization 1) harvesting 2) threshing 3) cleaning 4) drying 5) warehouse 6) milling then transport to the trade.
+
+Before the storage of grains to protect harvested stuff from pest and disease attack, mix 500 gm Neem seed dust with 10 Kg of seed. To protect stored grains from pests attacked Mix Malathion 50 EC@30 ml/3 Ltr of water. Spray for 1002meter storage area at every 15 days.</p>
+<h3>Usage of Drones</h3>
+<p>Drones don’t merely enhance overall performance but also encourage farmers to solve other assorted barriers and receive plenty of benefits through precision agriculture. With the market for agricultural drones reaching a whopping $1.3 billion, UAVs (unmanned aerial vehicles) fill the gap of human error and inefficiency by traditional farming methods. The purpose of adopting drone technology is to exclude any guesswork or ambiguity and instead focus on accurate and reliable information.</p>
+
+<p>The results of the effectiveness of using a drone can be explained in terms of production.
+Firstly, using a drone can reduce the loss of production by 10-15%. Because spraying the
+chemicals using labor, the labor will walk in the field and destroy the crop. On the other
+hand, using a drone does not destroy the crop.</p>
+<p>Secondly, using a drone can reduce the water used for chemical mixing by 10
+times. To spray by labor, the water used is 20L per 2 L of chemical. However, using drone,
+the water use is 2L per 2 L of chemical. Also, using a drone can reduce the amount of
+chemicals used. Spraying by labor, the water uses 100ml of the chemical. However, by
+using a drone, the water uses 60ml of the chemical.</p>
+<p>Additionally, using a drone avoids spraying the chemical on the same area, since
+the drone flies by a GPS system that is very precise.</p>
+
+`,
+            'maize': `
+            <center>
+                <div  style="display: inline-block; text-align: center; margin-right: 20px;">
+                    <img src="./images/maize.jpg" style="width:500px;">
+    
+                </div>
+                
+            </center>
+    
+                <p>Maize (Zea mays L) is second rated grain used collectively in form of foodstuff or fodder. Globally, maize is known as queen of cereals because it has highest genetic yield potential among the cereals. Grains provides food items which are consumed in the form of starch, corn flakes also glucose. It is also used as animal feed in poultry. Maize can be cultivated in any soil as they require less fertile soil and various chemicals. Moreover, it fetch less ripening span, 3 months, in comparison to paddy, which takes 145 days.</p>
+                <p>By growing maize, farmers can easily shield the deteriorating grade of soil , preserve 90% of water and 70% of potency as compared with paddy and can make more profit than wheat and paddy,” reported by vice chancellor, Punjab Agricultural University, Ludhiana. It serves as basic raw material to thousands of industrial products like oil, starch, alcoholic beverages etc. Uttar Pradesh, Rajasthan, Madhya Pradesh, Bihar, Himachal Pradesh, J & K and Punjab are major maize growing states. AP and Karnataka is major producer of maize in south.</p>
+                <h3>Soil Requirement</h3>
+               <p>Fertile well-drained alluvial or simply red loams free of coarse elements and full off nitrogen are ideal soils for maize cultivation. Maize can be grown on wide range of soils including loamy sand to clay loam. Definitely depleted plains are effective suited to the cultivation, even though it grows up in various hilly zones equally. Soils with fine organic matter containing good water holding capacity with pH ranging from 5.5-7.5 are required to increase yield. Heavy clay soil is not suitable for cultivation.
+
+Soil test is necessary to know deficiency of any nutrient in the soil.</p>
+                <h3>Land Preparation</h3>
+                <p>For cultivation selected land should be free from weeds and remains of previously grown crop. Plough the land to bring the soil to fine tilth. It may take 6 to 7 plough. Apply 4-6 tons/acre of well decomposed cow dung across the field, also apply 10 Azospirillum packets in field. Prepared furrow and ridges with 45 cm to 50 cm spacing.</p>
+                <h3>Sowing</h3>
+                <p>In kharif season, crop is sown in month of May end to June corresponding with the onset of monsoon. Spring crops are sown during late February to end of march. Plantation of baby corn can be done all the year round, except December and January. Kharif and rabi season are best for sweet corn sowing.</p>
+                <p>Seed should be sown at depth of 3-4 cm. For sweet corn cultivation keep depth of sowing to 2.5 cm.</p>
+                <p>Sowing can be done manually by dibbling seeds or by mechanically with help of tractor drawn ridger seed drill.</p>
+                
+               <h3>SEED</h3>
+               <p>To protect seeds from soil borne diseases and insect pest, seed treatment is necessary. To protect seeds from downy mildew, treat the seed with Carbendazim or Thiram@2gm/kg of seeds. After chemical treatment, treat seed with Azospirillum@600gm+ rice gruel. After treatment shade dry seeds for 15-20 minutes. Azosprillum helps in fixing of atmospheric nitrogen in the soil.</p>
+               <h3>WEED CONTROL</h3>
+               <p>Weeds are the serious problem in maize, particularly during kharif/monsoon season they competes with maize for nutrient and causes yield loss upto 35%. Therefore, timely weed management is needed for achieving higher yield. Take atleast one or two hand weeding in maize crop. First 20-25 days after sowing and second when on 40-45 days after sowing. If weed infestation is high, spray with Atrazine @500gm per 200 Ltr of water. After weeding, apply fertilizer as top dressing and carry out earthing up operation</p>
+               <h3>IRRIGATION</h3>
+               <p>Apply irrigation immediately after sowing. Based upon soil type, on third or fourth day give lifesaving irrigation. In rainy season, if rain is satisfactory then it is not needed. Avoid water stagnation in early phase of crop and provide good drainage facility. Crop required less irrigation during early stage, 20 to 30 days after sowing afterwards it required irrigation once in a week. Seedling, knee height stage, flowering and grain feeling are the most sensitive stage for irrigation. Water stress at this stage cause huge loss in yield. In case of water scarcity, irrigate alternate furrow. It will save water also.</p>
+               <h3>HARVESTING</h3>
+               <p> Harvesting should be done when cobs outer cover turns from green to white. The optimum time of harvesting maize is when the stalks have dried and moisture of grain as about 17-20%. Drying place or equipment should be dry, clean and disinfected.
+ 
+ Sweet corn harvesting: When crops come nears to maturity, examined a few ears daily to determine the time for the first picking. Corn is ready for harvest when the ear is full size for the variety, has a tight husk, and has somewhat dried silks. The kernels are fully developed and exude a milky liquid when punctured. Delay harvesting causes reduction in sugar content. Whether harvesting is done by hand or machine, sweet corn should be collected at night or early in the morning.
+ 
+ Baby corn: Ears are harvested 45-50 days after emergence, when silks are 1-2 cm long (within 1-2 days after silk emergence). Harvesting is carried out in morning when temperature is low and moisture is high. The picking of baby corn should be done once in three days and generally 7-8 pickings are required depending on genotypes used.
+  
+ Pop corn: Leave ears of popcorn on the plant for as long as possible. If the weather allows, leave them in the field until the husks are dry and papery.</p>
+               <h3>POST-HARVEST</h3>
+               <p> Sweet corn must be moved quickly from the field to packing sheds, where it should be rapidly sorted, packed, and cooled. It is generally packed in wire bound wooden crates, which can hold from 4 to 6 dozen ears, depending on the size of the crate or ears.</p>
+        
+
+                   
+        `,
+            
+        };
+    
+        const cropDetailElement = document.getElementById('crop-details');
+        cropDetailElement.innerHTML = cropDetails[cropName];
+    }
+    </script>
+</body>
+</html>

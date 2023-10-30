@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DualPath AgriTech</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f7f4; /* Soft greenish-blue background */
+        }
+
+        header {
+            background-color: #2b5b84; /* Dark blue header */
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            padding: 20px;
+        }
+
+        #crop-list {
+            flex-basis: 30%;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        #crop-details {
+            flex-basis: 70%;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        button {
+            cursor: pointer;
+            display: block;
+            margin-bottom: 10px;
+            border: none;
+            padding: 10px;
+            width: 100%;
+            text-align: left;
+            font-size: 18px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #ddd;
+        }
+        table,
+        th,
+        td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+    th {
+        text-align: left;
+    }
+
+        #back-button {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: #2b5b84; /* Dark blue "Back" button */
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+
+        /* Add styles for the heading */
+        #crop-heading {
+            background-color: #70ad47; /* Green heading background */
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            position: relative;
+        }
+
+        /* Add a line under the heading */
+        #crop-heading::after {
+            content: '';
+            display: block;
+            width: 100%;
+            height: 3px;
+            background-color: #ff5733; /* Red line color */
+            position: absolute;
+            bottom: 0;
+            left: 0;
+        }
+
+        /* Add individual button colors */
+        #crop-list button:nth-child(1) {
+            color: #0d0d0c;
+            background-color: #f0f0f0; /* Green for Mango */
+        }
+        
+        #crop-list button:nth-child(2) {
+            color: #000000;
+            background-color: #fff; /* Yellow for Banana */
+        }
+        
+        #crop-list button:nth-child(3) {
+            color: #020202;
+            background-color: #fff; /* Brown for Sapota */
+        }
+        body {
+     top: 0px !important;
+    }
+
+    body > .skiptranslate > iframe.skiptranslate {
+     display: none !important;
+     visibility: hidden !important;
+    }
+        
+    </style>
+</head>
+<body>
+    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <script>
+     function googleTranslateElementInit(){
+         new google.translate.TranslateElement(
+             {pageLanguage:'en'},
+             'google_translate_element'
+         );
+     }
+    </script>
+    <button id="back-button" onclick="goBack()">Back</button>
+    <header>
+        <h1 style="font-size: 36px;">DualPath AgriTech</h1>
+        <div id="google_translate_element"></div>
+    </header>
+    <div class="container">
+        <div id="crop-list">
+            <h2 id="crop-heading">Oilseeds</h2>
+            <button onclick="showCropDetails('lentil')">lentil</button>
+            <button onclick="showCropDetails('bengalgram')">Bengalgram</button>
+            <button onclick="showCropDetails('greengram')">greengram</button>
+           
+            <!-- Add more fruit crops here with respective colors -->
+        </div>
+        <div id="crop-details">
+            <!-- Crop details will be displayed here -->
+        </div>
+    </div>
+
+    <script>
+        function showCropDetails(cropName) {
+            
+
+            const cropDetailElement = document.getElementById('crop-details');
+            cropDetailElement.innerHTML = cropDetails[cropName];
+        }
+
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+
+    <script>
+        function showCropDetails(cropName) {
+            const cropDetails = {
+                'lentil': `
+                <center>
+                    <div  style="display: inline-block; text-align: center; margin-right: 20px;">
+                        <img src="./images/lentil.jpg" style="width:400px; height:auto">
+                        
+                    </div>
+                    
+                </center>
+        
+                   
+                    <p>It is one of the most important protein rich pulse crop. It is mostly eaten as Dal by splitting into 2 cotyledons, deep orange red or orange yellow in color. Whole grain is also used in various dishes. Lentil also provide a source of starch for textiles and printing. It is mixed with wheat flour in bread and cake production. India is the highest producer of lentil in the world.</p>
+
+</p>
+
+
+                    <h3>SOIL</h3>
+                    <p>Lentil can be grown on all type of soil. Saline, Alkaline or waterlogged soils should be avoided. Soil should be friable and weed free so that seed could be placed at uniform depth.</p>
+                    <h3>LAND PREPARATION</h3>
+                    <p>In case of light soils, less tillage or soil manipulation is required to prepare seed-bed. One deep ploughing followed by 3-4 cross harrowing’s should be given in case of heavy soils. 2-3 ploughings are sufficient for proper pulverization of land. Levelling of field should also be done for proper distribution of water. Proper moisture should be present in the field at the time of sowing seeds.</p>
+                    
+                    <h3>SOWING</h3>
+                    <p>Seed should be sown in the mid of October to First week of November.</p>
+                    <p>Seeds should be sown in lines 22 cm apart. Under late sowing conditions, row- spacing should be reduced to 20 cm.</p>
+                    <p>Sow seeds at depth of 3-4 cm.
+</p>
+<p>For Sowing use pora method or seed cum fertilizer drill. Seed can also be sown by broadcasted manually.
+
+</p>
+                    <h3>SEED</h3>
+                    <p>Seed rate of 12-15 kg/acre is optimum.
+
+</p>
+<p>Seed should be treated with Captan or Thiram @3gm/kg of seed before sowing.
+</p>
+<h3>WEED CONTROL</h3>
+<p>Main weeds found in lentil are Chenopodium album (Bathua), Vicia sativa (ankari), Lathyrus spp (chatrimatri) etc. They can be controlled by 2 hoeing at 30 and 60 days interval. 45-60 days of weed free period should be maintained for proper crops stand and yield. Pre-emergence application of Stomp 30EC@550ml/acre with one hoeing at 50 days after sowing, helps in effective weed control.</p>
+<h3>IRRIGATION</h3>
+<p>Lentil is mainly grown as a rainfed crop. It requires 2-3 irrigations in case of irrigated conditions depending upon the climatic conditions. One irrigation should be provided 4 weeks after sowing and second at flowering stage. Pod formation and flower initiation are critical stages of water requirement.</p>
+ <h3>HARVESTING</h3>
+ <p>Harvesting should be done at proper time when plant dry up and pods mature. Over-ripening of pods should be avoided as produce may be lost due to shattering. Plants should be beaten by sticks to thresh. After threshing, seed is cleaned and dried up in the sunshine. Moisture content should be 12% at the time of storage.</p>
+
+
+                    
+
+
+                `,
+                'bengalgram': `
+                <center>
+                    <div  style="display: inline-block; text-align: center; margin-right: 20px;">
+                        <img src="./images/bengalgram.jpg" style="width:500px">
+                       
+                    </div>
+                    
+                </center>
+        
+                   
+                   <p>Gram commonly known as chick pea or Bengal gram is the most important pulse crop of India. It is used for human consumption as well as for feeding to animals. Fresh green leaves are used as vegetable while straw of chickpea is an excellent fodder for cattle. The grains are also used as vegetable. India, Pakistan, Ethiopia, Burma and Turkey are main gram growing countries. India ranks first in the world in respect of production and acreage followed by Pakistan. In India, Madhya Pradesh, Rajasthan, Uttar Pradesh, Haryana, Maharashtra and Punjab are major gram producing states.</p>
+                   <p>On basis of size, color and shape of seeds, gram is divided into two group 1) Desi or brown gram 2) Kabuli or white gram. Yield potential of kabuli is poor as compared to Desi gram.</p>
+                    <h3>Soil and Land Preparation</h3>
+                    <p>It can be grown on wide variety of soils. Sandy loam to clay loam is considered to be most suitable soil for gram cultivation. Soil having water logging problem are not suitable for cultivation. Saline alkaline soil are not suitable. pH in the range of 5.5 to 7 is ideal for sowing.</p>
+                    <p>Avoid sowing of same crop continuously in field. Follow proper crop rotation. Crop rotation with cereals help in controlling soil borne disease. Common rotation are Kharif fallow-chick pea, Kharif fallow- gram + wheat/barley/raya, Chari-gram, bajra-gram, rice/maize-gram.</p>
+ </p>
+ <p>Very fine and compact seedbed is not good for chick pea, it required rough seed bed. If it is cultivated as mix crop the land should be plough to fine tilth. If chick pea crop is taken after a kharif fellow carry out one deep ploughing during the monsoon as it will help to conserved rain water. Before sowing plough the land only once. If soil appears to be deficient in moisture run a roller about a week before sowing.</p>
+
+                    <h3>Sowing</h3>
+                    <p>For rainfed conditions, complete sowing from Oct 10 to Oct 25. Under irrigated condition complete sowing from October 25 to November 10 of desi and kabuli varieties. Sowing on right time is necessary as early sowing leads to excessive vegetative growth, also crop get affected due to wilt while late sowing, crop make poor vegetative growth and inadequate root development.
+
+</p>
+                    <p>Seed should be spaced 10 cm apart allowing 30-40 cm between rows.</p>
+                    <p>The seed should be placed 10-12.5 cm deep.
+                        </p>
+<h3>SEED</h3>
+<p>Use seed rate of 15-18 kg/acre for desi variety and 37 kg/acre for Kabuli variety. Increased seed rate of desi gram to 27 kg/acre in case sowing is to done in second fortnight of November and 36 kg/acre in case sowing is to be done in first fortnight of December.
+</p>
+
+
+                    <h3>Weed Control </h3>
+                    <p>To keep check on weeds, take first hand weeding or with wheel hoe 25-30days after sowing and second if needed after 60 days of sowing. Simultaneously for effective weed control, pre-emergence application of Pendimethalin @ 1Litre/200Litre water on third day after sowing for one acre land. It will help for controlling annual weeds. In case of less infestation, hand weeding or inter culture with the help of hoe is always better than herbicides because inter culture operations improve aeration in the soil.
+
+</p>
+                    <h3>Irrigation</h3>
+                   <p>Where irrigation facilities are available, give a pre-sowing irrigation. It will ensure proper germination and smooth crop growth. After then give second irrigation at time of pre-flowering and one at pod development stage. In case of early rain delay irrigation and give according to requirement. Heavy and excess irrigation enhanced vegetative growth and depresses grain yield. Also it doesn’t tolerate water stagnation in field so provide proper drainage in field.</p>
+                    <h3>Harvesting</h3>
+                    <p>When plant gets dry and leaves turn reddish brown and start shedding, plant is ready to harvest. Cut the plant with sickle. Sundry the harvested crop for five to six days. After proper drying, carry out threshing by beating the plants with sticks or by trampling under the feet of bullocks.</p>
+
+
+                    
+                    
+                    <h3>POST-HARVEST</h3>
+                    <p>Grains of harvested crop must be well dried before storage. And take care to avoid the pulse beetle infestation in storage.</p>
+`,
+           
+            'greengram': `
+            <center>
+                <div  style="display: inline-block; text-align: center; margin-right: 20px;">
+                    <img src="./images/moong.jpg" style="width:500px;">
+    
+                </div>
+                
+            </center>
+    
+              <p>Green gram also known as moong is one of the main pulse crop of India. It is a rich source of Protein along with fibre and iron. It can be cultivated as Kharif as well as summer crop. In Punjab, near about 5.2 thousand hectares of area is under moong cultivation with total production of 4.5 thousand tones (2012-2013).</p>
+              
+                <h3>SOIL AND Land Preparation</h3>
+                <p>It can be cultivated on wide range of soil. Gives best result when grown on well drained loamy to sandy-loam soils. Saline and water logged soils are not suitable for cultivation.</p>
+               <p>To bring soil to fine tilth give two to three ploughing. After each ploughing carry out planking.</p>
+                <h3>Sowing</h3>
+                <p>Optimum time for kharif sowing is first fortnight of July. Optimum time for summer moong cultivation is from March to April.
+</p>
+                <p>Use row spacing of 30 cm and plant to plant spacing of 10 cm for Kharif sowing. For Rabi sowing use row spacing of 22.5 cm and plant to plant spacing of 7 cm.  
+</p>
+                <p>Sow seeds at depth of 4-6 cm.</p>
+                <p>For sowing drill/pora/kera methods are used.
+
+.</p>
+               <h3>SEED</h3>
+               <p>For Kharif season, use seed rate of 8-9 kg/acre whereas for summer season used seed rate of 12-15 kg/acre.
+
+</p>
+               <h3>WEED CONTROL</h3>
+               <p>To keep field weed free, do one or two hoeing, first hoeing four week after sowing and second hoeing two week after first hoeing are required. To control weed chemically, apply Fluchloralin @ 600ml/acre or Trifluralin @ 800 ml/acre before sowing (take sowing on same day). Also after sowing, within two days, take spray of Pendimethalin @ 1Ltr/acre in 100-200 Ltrs of water.
+</p>
+
+               <h3>IRRIGATION</h3>
+               <p>Moong is mainly grown as a kharif crop. If needed provide irrigation depending upon the climatic conditions.
+For summer season crop, three to five irrigations are required depending upon soil type and climatic condition. For good yield stop irrigation 55 days after sowing.</p>
+               <h3>HARVESTING</h3>
+               <p>Best time of harvesting when 85% of pods get matured. Over-ripening of pods should be avoided as produce may be lost due to shattering. Do harvesting with sickle. After harvesting carried out threshing. After threshing, seeds are cleaned and dried in the sunshine.</p>
+               
+        
+        `,
+            
+    
+        };
+    
+        const cropDetailElement = document.getElementById('crop-details');
+        cropDetailElement.innerHTML = cropDetails[cropName];
+    }
+    </script>
+</body>
+</html>

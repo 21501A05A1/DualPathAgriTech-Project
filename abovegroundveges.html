@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DualPath AgriTech</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f7f4; /* Soft greenish-blue background */
+        }
+
+        header {
+            background-color: #2b5b84; /* Dark blue header */
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        
+        }
+        .about-sub {
+    display: flex;
+    max-width: 800px;
+    margin: 1rem auto;
+    text-align: left;
+  }
+  .about-sub h4{
+    margin-bottom:auto;
+    width:100%;
+    display:initial;
+    
+  }
+  
+  .about-sub > img {
+    margin-top: 5px;
+    max-height: 230px;
+    width: 300px;
+    max-width: 90%;
+    animation: animateimage 1s linear;
+  }
+.about-sub .sub-sub-about {
+    padding: 1rem;
+    animation: animatetext 0.5s linear;
+  }
+
+  .about-sub .sub-sub-about h4{
+    margin-bottom: auto;
+  }
+.about-sub .sub-sub-about p {
+    font-size: 16px;
+    margin-bottom: auto;
+  }
+  .about-sub .sub-sub-about img{
+    /* max-height: 250px; */
+   
+    width: 500px;
+    max-width: 90%;
+    animation: animateimage 1s linear;
+  }
+
+        .container {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            padding: 20px;
+        }
+
+        #crop-list {
+            flex-basis: 30%;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        #crop-details {
+            flex-basis: 70%;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        button {
+            cursor: pointer;
+            display: block;
+            margin-bottom: 10px;
+            border: none;
+            padding: 10px;
+            width: 100%;
+            text-align: left;
+            font-size: 18px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #ddd;
+        }
+        table,
+        th,
+        td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+    th {
+        text-align: left;
+    }
+
+        #back-button {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: #2b5b84; /* Dark blue "Back" button */
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+
+        /* Add styles for the heading */
+        #crop-heading {
+            background-color: #70ad47; /* Green heading background */
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            position: relative;
+        }
+
+        /* Add a line under the heading */
+        #crop-heading::after {
+            content: '';
+            display: block;
+            width: 100%;
+            height: 3px;
+            background-color: #ff5733; /* Red line color */
+            position: absolute;
+            bottom: 0;
+            left: 0;
+        }
+
+        /* Add individual button colors */
+        #crop-list button:nth-child(1) {
+            color: #0d0d0c;
+            background-color: #f0f0f0; /* Green for Mango */
+        }
+        
+        #crop-list button:nth-child(2) {
+            color: #000000;
+            background-color: #fff; /* Yellow for Banana */
+        }
+        
+        #crop-list button:nth-child(3) {
+            color: #020202;
+            background-color: #fff; /* Brown for Sapota */
+        }
+        
+        #crop-list button:nth-child(4) {
+            color: #000000;
+            background-color: #fff; /* Thick Green for Guava */
+        }
+        body {
+     top: 0px !important;
+    }
+
+    body > .skiptranslate > iframe.skiptranslate {
+     display: none !important;
+     visibility: hidden !important;
+    }
+        
+    </style>
+</head>
+<body>
+    
+      <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+                <script>
+                 function googleTranslateElementInit(){
+                     new google.translate.TranslateElement(
+                         {pageLanguage:'en'},
+                         'google_translate_element'
+                     );
+                 }
+                </script>
+    <button id="back-button" onclick="goBack()">Back</button>
+    <header>
+        <h1 style="font-size: 36px;">DualPath AgriTech</h1>
+        <div id="google_translate_element"></div>
+    </header>
+
+    <div class="container">
+        <div id="crop-list">
+            <h2 id="crop-heading">Above Grounded Vegetables</h2>
+            <button onclick="showCropDetails('Lettuce')">Lettuce</button>
+            <button onclick="showCropDetails('Spinach')">Spinach</button>
+            <button onclick="showCropDetails('Cauliflower')">Cauliflower</button>
+            <button onclick="showCropDetails('Cabbage')">Cabbage</button>
+            
+            <!-- Add more fruit crops here with respective colors -->
+        </div>
+        <div id="crop-details">
+            <!-- Crop details will be displayed here -->
+        </div>
+    </div>
+
+    <script>
+        function showCropDetails(cropName) {
+            const cropDetails = {
+                'Mango': 'Mango is a tropical fruit., ',
+                'Banana': 'Banana is a tropical fruit...',
+                'Sapota': 'Sapota is a tropical fruit...',
+                'Guava': 'Guava is a tropical fruit...',
+                'Grapes': 'Grapes are a sub-tropical fruit...',
+                'Amla': 'Amla is a tropical fruit...',
+                'Pomegranate': 'Pomegranate is a tropical fruit...',
+                'Black Plum': 'Black Plum is a tropical fruit...'
+                // Add more crop details here
+            };
+
+            const cropDetailElement = document.getElementById('crop-details');
+            cropDetailElement.innerHTML = cropDetails[cropName];
+        }
+
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+
+    <script>
+        function showCropDetails(cropName) {
+            const cropDetails = {
+                'Lettuce': `
+                <center>
+                    <div  style="display: inline-block; text-align: center; margin-right: 20px;">
+                        <img src="./images/spinach.jpg" style="width:700px; height:auto">
+                        
+                    </div>
+                    
+                </center>
+        
+                    <h3>Lettuce Growing</h3>
+                    <p>In a few words, we start sowing indoors and transplant in the field or greenhouse, in most regions after the first frost. For the cultivation of 1 hectare, we need 28-31 oz. (800-900 grammars) of seed. We sow the seeds in seedbed/ pots at a depth of 0,17 inches (0,4-0,5 cm) and place them in a room with plenty of sunlight. We keep the soil moist. It is important to reserve the ground moist, but not irrigate excessively, because our seeds will probably rot and will not germinate. Some producers harden the young seedlings before transplanting them in the field. We transplant the lettuce in the field after the last frost. We choose an area with well-drained soil, free from stones and roots. Some producers also sow the lettuce seeds directly in the field, but this method is not recommended for high soil temperatures. Lettuce seeds are genetically programmed to go dormant above a certain temperature. </p>
+                    <p>Lettuce plants prefer plenty of sun and thrive in soil rich in nitrogen and humus. In most cases, we plant lettuce leaving a distance of 8-12 inches (20-30 cm.) between plants and 20-23 inches (50-60 cm.) between rows. In a field of 1 hectare (10.000 square meters), we transplant about 50.000 plants. We irrigate frequently. Three weeks after transplanting, we may add a fertilizer that can boost the plants’ development, although lettuce is definitely not a heavy feeder (ask a local licensed agronomist). However, lettuce is a demanding crop in terms of farmer’s attention and time. Many farmers monitor the crop every day, checking soil moisture, pests, diseases, and general crop health. In most cases, we harvest 60 – 90 days after sowing, depending on the variety. It is better to cut the lettuce in the morning. The average yield is 20-40 tons per hectare.
+</p>
+<center>
+                <div  style="display: inline-block; text-align: center; margin-right: 20px;">
+                    <img src="./images/spinach1.jpg" style="width:300px; height:200px;">
+                   
+                </div>
+                <div  style="display: inline-block; text-align: center; margin-right: 20px;">
+                    <img src="./images/spinach2.jpg" style="width:300px; height:200px;">
+                   
+                </div>
+               
+            </center>
+                    <h3>SOIL</h3>
+                    <p>Lettuce is a plant that thrives in nutrient-rich, well-drained soil. It is essential to perform a proper field preparation before sowing the seeds or transplanting the young seedlings. Experienced farmers report that it is helpful to till the soil and apply compost or well-rotted manure normally one week before transplanting or direct seeding. In most cases, lettuce prefers fertile soil with a pH ranging from 6 to 6,8. In order to have thriving plants and good yields, farmers prefer to keep the soil constantly moist. Growers shall perform a soil analysis before planting. It is recommended to consult a local licensed agronomist in order to form a rational field preparation plan.</p>
+
+                    <h3>Water Requirements</h3>
+                    <p>Lettuce plants have a shallow root system. They normally prefer smaller but more frequent irrigation sessions. During hot summer months, we may need to irrigate lettuce plants every day and maybe put a shade upon them. If we don’t regularly irrigate our plants during this season, lettuce plants will suffer from heat and bolting can be an issue (the plant starts to produce seeds). Consequently, lettuce leaves may become bitter. Bolting is generally irreversible and those plants cannot be marketed. Most farmers use sprinkler or drip irrigation systems. In order to keep the soil constantly moist, farmers may apply a thin layer of mulch to the ground (ask your local licensed agronomist). Sudden deviations in soil moisture will deteriorate the plant’s growth.</p>
+                    <p>It is highly recommended to water lettuce plants early in the morning or late in the afternoon. It is essential to avoid excessive watering that may result in disease outbreaks and root rot. Keeping the soil moist is the key to growing healthy lettuce.</p>
+                    <h3>Lettuce Planting and Spacing</h3>
+                    <ul>
+                        <li>Seeding Rate: 800-1000 gr (28 to 35 oz.) of seeds per hectare</li>
+                        <li>Number of plants per hectare: 50.000-60.000 plants</li>
+ <li>1 hectare = 2,47 acres = 10.000 square meters</li>
+<li>Space between rows is 11-23 inches (27-60 cm) and space between plants in the rows is 7-12 inches (18-30 cm)</li>
+<li>Lettuce seeds are small and require a depth of  ¼ inch (0,6 cm)</li>
+<li>We can use thinning once the seeds are germinated. We may continue thinning until there is sufficient space between lettuce heads. A common pattern is leaving at least 7 inches (18 cm) between each plant, but this also depends on the variety.</li>
+<li>Farmers may seed other plants between lettuce rows (intercropping). Rows of garlic can help in aphid control, while sweet corn or peas may provide natural shade.</li>
+<li>Farmers may consult their local licensed agronomist in order to schedule a proper growing plan.</li>
+    <h3>Lettuce Fertilizer Requirements</h3>
+    <p>In general, fertilizer application often takes place three weeks after the plants are transplanted into their final position. In many varieties, farmers let the lettuce grow in height before they apply any fertilizer. Many farmers use a well-balanced fertilizer, consisted of essential nutrients, such as nitrogen (N), potassium (K) and phosphorus (P), usually in the form of granules. Experienced farmers claim that granular fertilizers can be applied in the form of 10-10-10 (N-P-K) or 5-5-5 (N-P-K) mixtures. We may apply the granules to the ground around lettuce plants. It is crucial that the granules don’t come in touch with the young plants, because there is a risk of burning them. After applying fertilizers, irrigation is usually required.</p>
+    <p>Finally, some farmers apply KNO3 at a rate of 200 kg per hectare about 35 days after transplanting (1 hectare = 2,47 acres = 10.000 square meters and 1 ton = 1000 kg = 2200 lbs.).
+
+<p>Organic farmers may apply well-rotted manure and plow the soil two weeks before planting. Organic manure helps in weed control and preserves soil moisture.</p>
+<h3>Lettuce Pests</h3>
+<p>Aphids. They are one of the most common enemies of leaf vegetables. Adults and nymphs feed on plant juices and also attack stem, flowers and leaves.</p>
+<p>Slugs. Slugs love to crunch the lettuce leaves, something that results in large holes and products that cannot be marketed. If they are let to reproduce freely, they may destroy the entire crop in a short time.</p>
+<h3>Lettuce Harvesting</h3>
+<p>As a general rule, lettuce sowing to harvesting can take from 65 to 130 days (depending on the variety). In most cases, lettuce can be harvested between 30 and 70 days after transplanting. The proper time for harvesting our plants depends not only on different varieties but also on local conditions (weather, planting distances, preferred market weight, fertilization etc.).</p>
+
+<p>Important things about Lettuce Harvesting:</p>
+
+<p>It is recommended to avoid harvesting overmature plants. Their leaves have a bitter taste, so it is preferred to harvest them when they are still young, just before maturity.
+Leaf lettuce can be harvested by removing its outer leaves. Therefore, inner leaves (close to the center of the plant) can continue to grow.
+We must regularly check our field looking for plants that are ready for harvesting.
+The ideal time to harvest lettuce is very early in the morning before the sun rises. According to some lettuce farmers, this time of the day is perfect, because lettuce plants are not exposed to intense sunlight.
+After harvesting, farmers store the lettuce in a cold but not freezing place.</p>
+<h3>Lettuce Yield per Hectare</h3>
+<p>The average lettuce yield per hectare is 20-40 tons. Keep in mind that 1 ton = 1000 kg = 2200 lbs. and 1 hectare = 2,47 acres = 10.000 square meters. Experienced lettuce farmers in areas with proper climate can harvest 20-40 tons per hectare multiplied by 2-4 crops a year. Of course, such high yields can be accomplished by experienced farmers after several years of practice.</p>
+  <h3>Innovative technologies for lettuce cultivation</h3>
+    <p>Whether in leafs or as a head of lettuce, in the open field or in protected scraps, lettuce production makes use of particularly advanced solutions, such as aeroponic cultivation and the application of artificial intelligence. In any case, with a high level of mechanization</p>
+    <p>This is an evolution of the well-known hydroponic method, where plants do not grow on a solid substrate, but with the root system immersed in water.  Conversely, the aeroponic cultivation is characterized by the absence of any solid or liquid substrate, natural or artificial, such as earth, peat, rock wool, coconut fiber, water, etc.  Plants are onlyfed by an aqueous  nutritious solution sprayed on the roots, containing 2% of minerals and trace elements. All this is complemented by an insufflation of CO2 (in the measure of 600-1000 g/m²) to obtain a productive plus of 35-40% depending on the species, and a certain bacteriostatic action and inhibition of mold sporulation.</p>
+    <p>It is a “terrestrial” application of a NASA research for food production in the absence of gravity and without soil, already started almost 60 years ago and resumed in the ‘90s of the last century in the many space missions, where logically it is not possible to grow fresh vegetables in the traditional way, and the water is a very precious commodity.</p>
+    <p>After the necessary passage in the germination cell, the seedlings are placed in greenhouses on appropriate supports, often arranged in overlapping layers to make the best available confined volume, feeding them with a nutritive solution nebulized on their roots, maintained at a constant temperature in a closed cycle, since the unabsorbed part is re-introduced into the circulation, with a consequent considerable saving of water and fertilizers.</p>
+    <p>With aeroponics it is possible to get high quality vegetable products: not only salads (including lettuce), but also medicinal plants, bulbous plants, etc. without using pesticides, with a high mechanization index. In the specific case of lettuces, 25-50 plants/m² are placed, with a fresh material production rate that reaches 12-25 kg/month.</p>                  
+
+
+                `,
+                'Spinach': `
+                <center>
+                    <div  style="display: inline-block; text-align: center; margin-right: 20px;">
+                        <img src="./images/spinach9.jpg" style="width:500px">
+                        
+                    </div>
+                    
+                </center>
+        
+                   
+                    <p>Spinach belongs to family of "Amaranthaceae" and it is native of central and western Asia. It is perennial vegetable and cultivated throughout the world. Spinach is also known as "Palak" in Hindi. It is a rich source of iron, vitamin and anti-oxidants. It has many health benefits. It helps to increases immunity. It is good for digestion, also good for skin, hair, eyes and for brain health. It has anti-cancer and anti-ageing property. Andhra Pradesh, Telangana, Kerala, Tamil Nadu, Uttar Pradesh, Karnataka, Maharashtra, West Bengal and Gujarat are leading producing states of spinach in India.
+                    </p>
+                    <h3>Soil and Land Preparation</h3>
+                    <p> It can be grown on any type of soil having good drainage capacity. But it give good result when grown on sandy loam and alluvial soil. Avoid acidic soils also water logged soils for spinach cultivation. pH of soil should be in range of 6 to 7.  </p>
+                    <p>Soil should be prepared by ploughing 2-3 times. After ploughing do levelling of soil for uniform bed formation. Prepared bed and irrigation channels.</p>
+                    <h3>Sowing</h3>
+                    <p>Spinach is sown throughout the year. For winter season, best time for sowing is from September to October. For spring season complete sowing from Mid-February to April.</p>
+                    <p>Use row to row spacing of 25-30 cm and plant to plant spacing of 5-10 cm.</p>
+                    <p>Sow seeds at depth of 3-4 cm.</p>
+                    <p>Sowing can be done by line sowing and broadcasting method.
+
+</p>
+                    <h3>Seed rate </h3>
+                    <p>For winter season use, seed rate of 4-6 kg and for summer crop use seed rate of 10-15 kg per acre. </p>
+                    <p>Before sowing soaked seeds in water for 12-24 hours. It will increased germination percentage.</p>
+                    <h3>Irrigation</h3>
+                    <p>For proper seed germination and good growth soil should have enough moisture content. At time of sowing if proper soil moisture is not present in soil then provide pre-sowing irrigation.
+First irrigation should be given after sowing. In summer month, apply irrigation at interval of 4-6 days where as in winter month apply irrigation at interval of 10-12 days. Avoid over irrigation also care should be taken not to water on leaves, as it will leads to occurrence of disease and deterioration of quality. Drip irrigation is proves to be beneficial for spinach cultivation.</p>
+                   
+                    <h3>Harvesting</h3>
+                    <p>Depending upon variety, crop is ready for first cutting 25-30 days after sowing. For harvesting, use sharp knife or sickle. Depending upon variety and season, subsequent cutting should be done at interval of 20-25 days.  </p>
+                    <h3>SEED PRODUCTION</h3>
+                    <p>For seed production, use spacing of 50 cm x 30 cm. Keep isolation distance of 1000 m around palak seed plot. Skip one row after every five rows; it is essential for field inspection. Remove disease plant; also remove plant showing variation in leaf characteristic. Harvest crop when seed stalks turn brown. After harvesting keep plant in field for curing and drying purpose for a week. After proper drying, for seed purpose, threshing of crop is to be done.</p>
+                    <h3>Better spinach through AI</h3>
+                    <center>
+                    <div  style="display: inline-block; text-align: center; margin-right: 20px;">
+                        <img src="./images/spinachent.jpg" style="width:500px">
+                     
+                    </div>
+                    <p>A Japanese agricultural startup has developed technology that uses artificial intelligence to assess the growth and potential of spinach seedlings, aiming to reduce food loss by increasing yields and efficiency.</p>
+                    <p>The AI system has two parts. The first uses photographs to estimate the height, width and weight of seedlings grown in plant factories. The other predicts future growth using an index developed by Farmship.</p>
+                    <p>In trials, the ratio of seedlings that grew properly increased to 80%, from 54% using standard methods. This corresponds to a 17% harvest increase.</p>
+                    <p>Farmship aims to automate the process with robots within two years and market the system to vegetable factories to be built in the future.</p>
+<p>Farmship chose spinach for this trial because its unit price is relatively high and demand for cultivation in vegetable factories is expected to increase.</p>
+
+                    
+                </center>
+
+            `,
+            'Cauliflower': `
+            <center>
+                <div  style="display: inline-block; text-align: center; margin-right: 20px;">
+                    <img src="./images/cauliflower.jpg" style="width:500px;">
+    
+                </div>
+                
+            </center>
+    
+                <p>Cauliflower is popular vegetable and this belongs to family Cruciferous. It work as anti-cancer agent. It promotes heart health, lower cholesterol levels. The major cauliflower producing states are Bihar, Uttar Pradesh, Orissa, West Bengal, Assam, Haryana and Maharashtra.</p>
+                <h3>Soil Requirement</h3>
+               <p>It can grow well in wide range of soil from sandy loam to clay. For late sown variety, clay loam soils are preferred and for early maturing varieties sandy loam soil is recommended. pH of soil should be in range of 6 to 7. Add lime in case of low pH soil.</p>
+                <h3>Land Preparation</h3>
+                <p>Bring soil to fine tilth by ploughing land thoroughly. Add well decomposed cow dung and mixed well in soil at time of last ploughing.</p>
+                <h3>Sowing</h3>
+                <p>For early season variety June-July is best transplanting time, For main season variety August to mid-September and October to first week of November is best transplanting for late varieties.</p>
+                <p>Use spacing of 45x45 cm for main season crop whereas for early and late maturing crop use spacing of 45x30 cm.</p>
+                <p>Sow seeds at depth of 1-2 cm.</p>
+                <p>For Sowing dibbling method and transplanting methods can be used.
+Sow seeds in nursery and apply irrigation, fertilizer dose as per requirement. Seedlings are ready to transplant within 25-30 days after sowing. For transplantation use three to four weeks old seedlings.</p>
+               <h3>SEED</h3>
+               <p>For early season variety seed rate of 500 gm is required whereas for late and main season variety seed rate of 250 gm per acre is required.</p>
+               <p>Before sowing dip seeds in hot water (50°C for 30 min) or streptocycline@0.01 gm/Ltr for two hours. After treatment dry them in shade and then sow on bed. Blackrot mostly observed in Rabi. As a preventive measure seed treatment with mercury chloride is essential. For that dip seeds in Mercury chloride@1 gm/Ltr solution for 30 min after that dry them in shed. Crop grown in sandy soils are more prone to stem rot. To prevent it do seed treatment with Carbendazim 50%WP@3 gm/kg of seeds.</p>
+               <h3>WEED CONTROL</h3>
+               <p>To check weed control apply Fluchloralin (Basalin)800ml/150-200 Ltr water before transplantation followed by hand weeding 30 to 40 days after transplanting. Apply Pendimethalin@1 Ltr/acre one day before transplanting of seedlings.</p>
+               <h3>IRRIGATION</h3>
+               <p>Immediately after transplanting, give first irrigation. Depending upon soil, climatic condition, apply irrigation at interval of 7-8 days in summer season and 10-15 days during winter season.</p>
+               <h3>HARVESTING</h3>
+               <p> After developing proper head harvesting can be done. Carry out harvesting in morning or evening time. After harvesting keep product in cool place.</p>
+               <h3>POST-HARVEST</h3>
+               <p> After harvesting, do sorting and grading depending upon curd size.</p>
+        
+
+                   
+        `,
+            'Cabbage': `
+            <center>
+                <div  style="display: inline-block; text-align: center; margin-right: 20px;">
+                    <img src="./images/cabbage.jpg" style="width:500px;">
+    
+                </div>
+                
+            </center>
+    
+                <p>It is leafy green or purple plant grown as annual vegetable crop. These are rich source of vitamin A and C also it contains minerals like phosphorus, potassium, calcium, sodium and iron. Cabbage can be eaten as raw as well as in cook form. In India, cabbage is grown mainly in winter in the plains region.</p>
+                <h3>Soil Requirement</h3>
+               <p>It can be grown on wide range of soil, but gives best result when grown on well drained loamy soil having good moisture holding capacity. pH of soil should be in range of 5.5 to 6.5. It cannot thrives well in highly acidic soils..</p>
+                <h3>Land Preparation</h3>
+                <p>Bring soil to fine tilth by ploughing land thoroughly. Give ploughing for 3-4times then do levelling of soil. Add well decomposed cow dung and mixed well in soil at time of last ploughing.</p>
+                <h3>Sowing</h3>
+                <p>September to October is ideal planting time in plain areas.</p>
+                <p>Use spacing of 45 x 45 cm for early season crop whereas for late maturing crop use spacing of 60 x 45 cm.</p>
+                <p>Sow seeds at depth of 1-2 cm.</p>
+                <p>For Sowing dibbling method and transplanting methods can be used.
+Sow seeds in nursery and apply irrigation, fertilizer dose as per requirement. Seedlings are ready to transplant within 25-30 days after sowing. For transplantation use three to four weeks old seedlings.</p>
+               <h3>SEED</h3>
+               <p>For sowing use seed rate of 200-250 gm per acre is required.</p>
+               <p>Before sowing dip seeds in hot water (50°C for 30 min) or streptocycline@0.01gm/Ltr for two hours. After treatment dry them in shade and then sow on bed. Blackrot mostly observed in Rabi. As a preventive measure seed treatment with Mercury chloride is essential. For that dip seeds in Mercury chloride@1gm/Ltr solution for 30 min after that dry them in shed. Crop grown in sandy soils are more prone to stem rot. To prevent it do seed treatment with Carbendazim 50%WP@3gm/kg seed.
+
+</p>
+               <h3>WEED CONTROL</h3>
+               <p>Apply Pendimethalin@1Ltr/acre four day before transplanting of seedlings followed one hand weeding after herbicide application.</p>
+               <h3>IRRIGATION</h3>
+               <p>Immediately after transplanting, give first irrigation. Depending upon soil, climatic condition, apply irrigation at interval of 10-15 days during winter season. Give adequate quantity of water to young seedling in vegetative stage. Heavy watering after head formation cause cracking of heads.</p>
+               <h3>HARVESTING</h3>
+               <p>When head reach to full size and having firm texture. Harvesting can be done on basis of market need. In case of high demand and offers high price the crop is harvested early. Harvesting is done with help of knife.</p>
+               <h3>POST-HARVEST</h3>
+               <p>After harvesting, do sorting and grading depending upon head size.</p>
+               <h3>New technology for high-yield cultivation of summer cabbage</h3>
+              <p>Based on historical evidences, cabbage cultivation started in the Mediterranean region, specifically modern day Turkey and Greece 4000 years ago. It later spread to other parts of Europe and the world.</p>
+              <p>Here is an article provided by Agrotonomy on successfully growing the cabbages using  vertical farming system</p>
+              
+              <div class="about-sub">
+                <img src="./images/cabbage_con1.jpg" alt="upload"/>
+              <div class="sub-sub-about">
+                <p>At Agrotonomy Tower Farm, we use our innovative vertical farming system to grow cabbages on aeroponic towers. We start by planting the seeds, which takes about 7 days to germinate. Then, it will take around 60 to 70 days (depending on the weather) for the cabbage to reach full maturity and becomes ready for harvest.</p>
+                <p>Aside from the traditional round cabbages, we also grow conehead cabbages. Conehead cabbages are known for their unique shape. They also have a mild and sweet flavor.</p>
+                <section class="sub-sub-about">
+        
+       
+      </section>
+      </div>
+     
+    </div>
+                
+             
+              <p>When vertical farming on aeroponic towers, the plants are less accessible to pests since they are growing off the ground. However, if there are cabbage worms and moths, we use thuricide, which is a highly effective and completely natural solution. It offers a great alternative to protect plants from pests in a safe and nature-friendly way.</p>
+              <p>Cabbages are a bit difficult to pull out when harvesting. After we get them from the aeroponic towers, we cut the exterior leaves, which are absolutely huge and edible. We use them in stir-fries, sautés, or salads.</p>
+              <p>Long ago, ancient Egyptians, Greeks, and Romans cultivated cabbages. Aside from using them in cooking, they also used it for medicinal purposes. Nowadays, people from different cultures also like eating cabbages as they offer a lot of uses in recipes and health benefits.</p>
+              <p>Through our sustainable vertical farming method, we were able to grow 18 cabbages on a single aeroponic tower within a limited space of less than one square meter.
+
+</p>
+
+        
+        `,
+     
+  
+        };
+    
+        const cropDetailElement = document.getElementById('crop-details');
+        cropDetailElement.innerHTML = cropDetails[cropName];
+    }
+    </script>
+</body>
+</html>

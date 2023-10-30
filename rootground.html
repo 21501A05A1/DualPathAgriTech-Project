@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DualPath AgriTech</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f7f4; /* Soft greenish-blue background */
+        }
+
+        header {
+            background-color: #2b5b84; /* Dark blue header */
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+        .about-sub {
+    display: flex;
+    max-width: 800px;
+    margin: 1rem auto;
+    text-align: left;
+  }
+  .about-sub h4{
+    margin-bottom:auto;
+    width:100%;
+    display:initial;
+    
+  }
+  
+  .about-sub > img {
+    margin-top: 5px;
+    max-height: 230px;
+    width: 300px;
+    max-width: 90%;
+    animation: animateimage 1s linear;
+  }
+.about-sub .sub-sub-about {
+    padding: 1rem;
+    animation: animatetext 0.5s linear;
+  }
+
+  .about-sub .sub-sub-about h4{
+    margin-bottom: auto;
+  }
+.about-sub .sub-sub-about p {
+    font-size: 16px;
+    margin-bottom: auto;
+  }
+  .about-sub .sub-sub-about img{
+    /* max-height: 250px; */
+   
+    width: 500px;
+    max-width: 90%;
+    animation: animateimage 1s linear;
+  }
+  
+ 
+
+        .container {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            padding: 20px;
+        }
+
+        #crop-list {
+            flex-basis: 30%;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        #crop-details {
+            flex-basis: 70%;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        button {
+            cursor: pointer;
+            display: block;
+            margin-bottom: 10px;
+            border: none;
+            padding: 10px;
+            width: 100%;
+            text-align: left;
+            font-size: 18px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #ddd;
+        }
+        table,
+        th,
+        td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+    th {
+        text-align: left;
+    }
+
+        #back-button {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: #2b5b84; /* Dark blue "Back" button */
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+
+        /* Add styles for the heading */
+        #crop-heading {
+            background-color: #70ad47; /* Green heading background */
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            position: relative;
+        }
+
+        /* Add a line under the heading */
+        #crop-heading::after {
+            content: '';
+            display: block;
+            width: 100%;
+            height: 3px;
+            background-color: #ff5733; /* Red line color */
+            position: absolute;
+            bottom: 0;
+            left: 0;
+        }
+
+        /* Add individual button colors */
+        #crop-list button:nth-child(1) {
+            color: #0d0d0c;
+            background-color: #fff; /* Green for Mango */
+        }
+        
+        #crop-list button:nth-child(2) {
+            color: #000000;
+            background-color: #fff; /* Yellow for Banana */
+        }
+        
+        #crop-list button:nth-child(3) {
+            color: #020202;
+            background-color: #fff; /* Brown for Sapota */
+        }
+        
+        #crop-list button:nth-child(4) {
+            color: #000000;
+            background-color: #fff; /* Thick Green for Guava */
+        }
+        body {
+     top: 0px !important;
+    }
+
+    body > .skiptranslate > iframe.skiptranslate {
+     display: none !important;
+     visibility: hidden !important;
+    }
+      
+            
+    </style>
+</head>
+<body>
+    
+    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <script>
+     function googleTranslateElementInit(){
+         new google.translate.TranslateElement(
+             {pageLanguage:'en'},
+             'google_translate_element'
+         );
+     }
+    </script>
+    <button id="back-button" onclick="goBack()">Back</button>
+    <header>
+        <h1 style="font-size: 36px;">DualPath AgriTech</h1>
+        <div id="google_translate_element"></div>
+    </header>
+    <div class="container">
+        <div id="crop-list">
+            <h2 id="crop-heading">Root Grounded Vegetables</h2>
+            <button onclick="showCropDetails('Carrot')">Carrot</button>
+            <button onclick="showCropDetails('Radish')">Radish</button>
+            <button onclick="showCropDetails('Onion')">Onion</button>
+            <button onclick="showCropDetails('Potato')">Potato</button>
+            
+            <!-- Add more fruit crops here with respective colors -->
+        </div>
+        <div id="crop-details">
+            <!-- Crop details will be displayed here -->
+        </div>
+    </div>
+
+    <script>
+        function showCropDetails(cropName) {
+            const cropDetails = {
+                'Mango': 'Mango is a tropical fruit., ',
+                'Banana': 'Banana is a tropical fruit...',
+                'Sapota': 'Sapota is a tropical fruit...',
+                'Guava': 'Guava is a tropical fruit...',
+                'Grapes': 'Grapes are a sub-tropical fruit...',
+                'Amla': 'Amla is a tropical fruit...',
+                'Pomegranate': 'Pomegranate is a tropical fruit...',
+                'Black Plum': 'Black Plum is a tropical fruit...'
+                // Add more crop details here
+            };
+
+            const cropDetailElement = document.getElementById('crop-details');
+            cropDetailElement.innerHTML = cropDetails[cropName];
+        }
+
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+
+    <script>
+        function showCropDetails(cropName) {
+            const cropDetails = {
+                'Carrot': `
+                <center>
+                    <div  style="display: inline-block; text-align: center; margin-right: 20px;">
+                        <img src="./images/carrot.jpg" style="width:700px; height:auto">
+                        
+                    </div>
+                    
+                </center>
+        
+                    <h3>GENERAL INFORMATION</h3>
+                    <p>Carrot "annual" or "biannual" herb belongs to family of Umbelliferae and it is native of "Europe". It is a great source of Vitamin A. Carrot is major vegetable crop of India. Haryana, Andhra Pradesh, Karnataka, Punjab and Uttar Pradesh are major carrot growing states.</p>
+                    <h3>SOIL</h3>
+                    <p>For good root development carrot required deep, loose loamy soils. Heavy soils as well as very loose soils are not suitable for carrot cultivation. For optimum yield pH of soil should be in range of 5.5 to 7.</p>
+                    <h3>POPULAR VARIETIES WITH THEIR YIELD</h3>
+                    <p>PC 34,Punjab Black beauty,Punjab Carrot Red,Pusa Kesar,Pusa Meghali,New Kuroda</p>
+                    <h3>LAND PREPARATION</h3>
+                    <p>Plough land thoroughly and make land weed and clods free. Add well decomposed cow dung of 10 ton/acre and mix well in soils at time of land preparation. Avoid use of undecomposed or free cow dung as it will leads to forking of fleshy roots.</p>
+                    <h3>SOWING</h3>
+                        <ul>
+                            <li>August-September is best time for sowing local (desi) varieties of carrots whereas October-November month is ideal for European varieties. </li>
+                            <li>Use row to row spacing of 45 cm and plant to plant spacing of 7.5 cm.</li>
+                            <li>For good growth, sow seeds at depth of 1.5 cm</li>
+                            <li>For sowing use dibbling method and also use broadcasting method.</li>
+                        </ul>
+                    <h3>SEED</h3>
+                    <p>For sowing of one acre land seed rate of 4-5 kg is sufficient.</p>
+                    <p>Before sowing soaked seeds in water for 12-24 hours. It will increased germination percentage.</p>
+                    <h3>FERTILIZER</h3>
+                    <table style="width:100%">
+                    <tr>
+                        <th>UREA</th>
+                        <th>SSP</th>
+                        <th>MURIATE OF POTASH</th>
+                    </tr>
+                    <tr>
+                        <td>55</td>
+                        <td>75</td>
+                        <td>50</td>
+                    </tr>
+                    </table>
+                    <h3>Nutrients Value(Kg/acre)</h3>
+                    <table style="width:100%">
+                    <tr>
+                        <th>NITROGEN</th>
+                        <th>PHOSPHORUS</th>
+                        <th>POTASH</th>
+                    </tr>
+                    <tr>
+                        <td>25</td>
+                        <td>12</td>
+                        <td>30</td>
+                    </tr>
+                    </table>
+                    <h3>IRRIGATION</h3>
+                    <p>After sowing, apply first irrigation, it will help in good germination. Depending upon soil type and climate, apply remaining irrigations at interval of 6-7 days in summer and 10-12 days interval in winter month. Overall carrot required three to four irrigations. Avoid excessive irrigation as it will leads misshape of roots and numerous hair growth. Stop irrigation two to three weeks before harvesting, It will help in increase in sweetness and taste of carrot.</p>
+                    <p>Take interculture operation like weeding and hoeing to keep check on weed growth also to provide soil aeration.</p>
+                    <p>Depending upon variety, carrots are ready for harvesting in 90-100 days after sowing. Harvesting is done manually by uprooting plants. After harvesting remove green tops from carrots and then they are washed with water.
+                        After harvesting grading of carrot depending upon size is carried out. Then they are packed in gunny bags or basket.</p>
+                    <h2><center>Hydroponic Carrots</center></h2>
+                    <h3>Steps to Grow Hydroponic Carrots</h3>
+                    <div class="about-sub">
+     
+      <div class="sub-sub-about">
+        <p>Choose the right variety/type of carrot for carrot hydroponics gardening. There are many different varieties to choose from, and they are easy to grow. Although there are many different varieties of carrots, not all of them are suitable for hydroponic systems.
+                        In order to grow carrots hydroponically, There are different steps, you need to follow.By following these steps ,one can grow carrot with a good yield.</p><p>Here are the steps:</p>
+        <section class="sub-sub-about">
+        
+       
+      </section>
+      </div>
+      <img src="./images/carrot_con.jpg" alt="upload" />
+    </div>
+    <br>
+                    
+                        <ul>
+                            <li>Begin by filling up the nutrient reservoir with water.</li>
+                            <li>Next, dissolve the nutrient mix into the water according to the instructions.</li>
+                            <li> Add the substrate to the grow tray. You can either use a pre-made mix or create your own.</li>
+                            <li> Place the carrot seeds on top of the substrate and then water them in. Make sure the water is at the correct temperature.</li>
+                            <li>They should be watered regularly, but do not overwater them or they will rot.</li>
+                            <li>Growing carrots hydroponically need a growing medium such as Rockwool or coconut fibre.</li>
+                            <li>Make sure to use a good quality concentrated hydroponic nutrient solution to feed the carrots.</li>
+                        </ul>
+                        <h3>The best time of year to plant carrots in a hydroponic garden</h3>
+                        <p>When it comes to planting carrots in a hydroponic garden, there is no wrong time of year. However, different times of year may provide different benefits for the gardener. For example, planting carrots in the early spring may provide an earlier harvest than planting them later in the summer.
+
+Additionally, plants that are planted in the early spring may be less likely to experience heat stress than those planted later in the summer.</p>
+<h3>Harvesting</h3>
+<p>Carrots are a root vegetable that is typically harvested in the early fall. Harvesting them when they are ready will ensure that they are sweet and have a tender texture. The best time to harvest carrots is when they are mature. In a hydroponic environment, this is typically when the root has reached a length of 6-8 inches. If you wait too long to harvest, the carrots will become tough and fibrous.
+    Another way to determine if they are ready to be harvested is to look at the colour of the top. The tops should be deep green and the carrots should be firm. If the tops are starting to turn yellow, the carrots are starting to go bad and should not be harvested.
+    Carrots are root vegetables that can be harvested at different stages of development. The earlier you harvest them, the smaller they will be, but they will also have a sweeter flavor. If you harvest them later, they will be larger, but less sweet.</p>
+ 
+
+                `,
+                'Radish': `
+                <center>
+                    <div  style="display: inline-block; text-align: center; margin-right: 20px;">
+                        <img src="./images/radish.jpg" style="width:500px">
+                      
+                    </div>
+                    
+                </center>
+        
+                   
+                    <p>Radish is an edible root vegetable and belongs to the family Brassicaceae. It is a great source of dietary fibre, vitamin C, iron, calcium, vitamin B6, and magnesium. This edible root vegetable was domesticated in Asia prior to Roman times.
+                    </p>
+                    <h3>Soil and Land Preparation</h3>
+                    <p> Radish can be grown on all types of soils. However, it thrives best on light friable, sandy loam soil. Growing radishes on heavy or compact soils can produce rough, malformed roots. The ideal pH of soil for good growth is between 5.5 and 6.8. To prepare the land for sowing, the land should be prepared to fine tilth and leveled. Normally, the radishes are sown via line sowing and broadcasting.</p>
+                    <h3>Sunlight and Temperature</h3>
+                    <p>The ideal temperature to grow radishes is between 18 and  25 degrees Celsius. Radish grows well in cooler climates but requires good sunlight.</p>
+                    <h3>Seed rate and sowing</h3>
+                    <p>The best time to sow radish seeds is between June and July in hilly regions and in September in the plains. There should be a distance of 7.5 cm between plants and there should be at least 45 cm between two rows. The seeds should be sowed at a depth of 1.5 cm. For sowing seeds on an acre of land, at least 4 to 5 kg of seeds is sufficient.</p>
+                    <h3>Irrigation</h3>
+                    <p>Radish plants need regular watering to keep the soil moist. For the first 4 to 5 days, irrigate daily, then every 3 to 4 days depending on rainfall. In dry soil conditions, radish tends to bolt and taste bitter. However, overwatering can cause root rot and split.</p>
+                    <h3>Fertilizer</h3>
+                    <p>At the time of sowing, it is advised to apply a layer of well-decomposed cow dung to the soil along with nitrogen in the form of urea and phosphorous in the form of SSP. Most varieties of radishes are quick-growing; therefore, the soil should be rich in the required nutrients.</p>
+                    <h3>Common Pests and Diseases</h3>
+                    <p>White rust is a common disease in the radish crop. It is caused by a fungus and leads to discolouration of leaves, blisters, and possible distortion or galls. The infected plant must be destroyed and in order to avoid this disease try to buy varieties that are resistant to the disease, practice crop rotation, and control the growth of weeds. Other than white rust, the radish crop is also inflicted by clubroot, a disease that causes swelling of the roots and can stunt growth. To treat this disease, the farmer must raise the soil’s pH and keep the field free of wild mustard.</p>
+                    <h3>Harvesting</h3>
+                    <p>Radish is harvested depending on its variety. Many varieties of radishes are ready to be harvested 30 to 60 days after sowing. Radishes are harvested by uprooting the plants. Once the vegetable is harvested its roots are washed so that the radish can be graded according to its size.</p>    
+                    <h3><center>controlled environment agriculture methods </center></h3>
+                    <p>iFarma leading name in IT-powered agriculture within controlled environments, has marked another feather in its cap by unveiling its first technologies tailored for indoor radish farming. With three years of painstaking research, iFarm’s team of expert agronomists has formulated the optimal techniques to ensure prolific radish yields with an impressively low defect rate throughout the year.</p>
+                  
+                    <p>Traditionally, radishes have posed a challenge for farmers inside and outside controlled environments. In colder climates, it’s a familiar sight to spot radish beds ensconced in black plastic, shielding them from direct sunlight and excessive daylight – conditions detrimental to the successful germination of these delicate crops.</p>
+                 
+                    <p>Regardless of the cultivation environment, it’s pivotal to foster the perfect conditions and pick sturdy radish varieties to ensure a substantial yield. This becomes even more paramount in controlled-environment agriculture. Here, the selection of varieties and the cultivation techniques need to be meticulously customized to match the unique conditions of enclosed farms.</p>
+                  
+                    <p>In their quest to revolutionize radish farming in vertical setups, iFarm’s team embarked on rigorous testing, experimenting with many radish varieties. The summer of 2023 witnessed intense trials with seeds sourced from renowned producers Rijk Zwaan and Gavrish within iFarm’s cutting-edge lab farm.</p>
+                    <p>Nikolay a seasoned agronomist in iFarm’s R&D wing, elaborated on the journey: “Our approach was comprehensive. Not only did we screen and handpick the hardiest radish varieties from these renowned producers, but we also fine-tuned many parameters – from perfecting the temperature range to calibrating the sowing rate and devising a bespoke nutrient solution. The microclimate, too, was carefully adjusted. The cumulative effect of these measures brought down the defect rate to an almost negligible 3%.”</p>
+                   <p>Despite their best efforts, the journey was fraught with hurdles. Attempts to cultivate radishes in mini-greenhouses or soaking the seeds failed to yield satisfactory results. As Nikolai recounted, “The plants simply refused to grow optimally. They were either minuscule or grotesquely deformed, with the defect rate skyrocketing to 30%.”</p>
+                    <p>Through persistent efforts, the team uncovered the sweet spot for radish cultivation: nighttime temperatures of 19 °C and daytime temperatures hovering around 22 °C. Coupled with their novel seeding and nutrition techniques, the results were stellar.</p>
+                   <p>Radishes are primarily cultivated on mineral wool or peat substrates within vertical farms powered by iFarm technologies. On average, iFarm’s indoor vertical farms yield an impressive 5.56 kg of radishes per square meter monthly.</p>
+                   
+            `,
+            'Onion': `
+            <center>
+                <div  style="display: inline-block; text-align: center; margin-right: 20px;">
+                    <img src="./images/onion.jpg" style="width:500px;">
+                 
+                </div>
+                
+            </center>
+    
+                <p>Onion (Allium cepa) is an important root vegetable, serving as a staple ingredient in many Indian dishes. It is a member of the Allium family, which also includes garlic, leeks and chives. They are known for their pungent flavor and aroma, which are caused by sulfur-containing compounds. India is one of the largest producers of onions in the world, with the states of Maharashtra, Karnataka and Gujarat being major onion-growing regions. India produced about 32 million metric tons of onion in the year 2022.</p>
+                <p>The demand for onions in India is high, and the crop is an important source of income for many farmers in the country.  </p>
+                <h3>Soil Requirement</h3>
+                <p>Almost all soil types are suitable for onion cultivation. However, sandy loam to clay soil with good drainage, moisture holding capacity and rich in organic matter is considered ideal. Optimum soil pH for its growth is 6 – 7.5. Onion is sensitive to highly acidic, saline and alkali soils. Avoid waterlogging in the field. </p>
+                <h3>Season and Time of planting</h3>
+                <table>
+                    <tr>
+                        <th>states</th>
+                        <th>seasons</th>
+                        <th>sowing time</th>
+                        <th>Transplanting time </th>
+                        <th>Harvesting time</th>
+                    </tr>
+                    <tr>
+                        <td rowspan=3>Maharashtra, Parts of Gujarat </td>
+                        <td>Kharif
+                        <td>May – June </td>
+                        <td>July – Mid Aug</td>
+                        <td>Oct – Dec</td>
+    
+                        
+                    </tr>
+                    <tr>
+                        <td>Early rabi or late kharif</td>
+                        <td>Aug – 1st week of Sept </td>
+                        <td>Sept – Oct </td>
+                        <td>Mid Jan – Feb end </td>
+                    </tr>
+                    <tr>
+                        <td>Rabi </td>
+                        <td>Oct – mid Nov </td>
+                        <td>Dec – Jan 1st week</td>
+                        <td>Apr – May </td>
+                        </tr>
+                        <tr>
+                        <td rowspan=3>Tamil Nadu, Karnataka and Andhra Pradesh </td>
+                        <td>Early kharif </td>
+                        <td>May – Apr </td>
+                        <td>Apr – May</td>
+                        <td>Jul – Aug </td>
+    
+                        
+                    </tr>
+                    <tr>
+                        <td>kharif</td>
+                        <td>May – Jun </td>
+                        <td>Jul – Aug </td>
+                        <td>Oct-Nov</td>
+                    </tr>
+                    <tr>
+                        <td>Rabi </td>
+                        <td>Sept – Oct  </td>
+                        <td>Nov – Dec</td>
+                        <td>Mar – Apr</td>
+                    </tr>
+                    <tr>
+                        <td rowspan=2>Rajasthan, Haryana, Punjab, UP </td>
+                        <td>kharif </td>
+                        <td>May end – Jun </td>
+                        <td>Jul – Mid Aug </td>
+                        <td>Nov – Dec</td>
+                     </tr>
+                    <tr>
+                        <td>Rabi</td>
+                        <td>Oct end – Nov </td>
+                        <td>Mid Dec – Mid Jan  </td>
+                        <tdMay – Jun</td>
+                    </tr>
+    
+                        
+                    
+                    
+                        <tr>
+                        <td rowspan=2>West Bengal, Orissa </td>
+                        <td>kharif </td>
+                        <td>Jun – Jul </td>
+                        <td>Aug – Sept </td>
+                        <td>Nov – Dec </td>
+    
+                        
+                    </tr>
+                    <tr>
+                        <td>Rabi </td>
+                        <td>Aug – Sept </td>
+                        <td>Oct – Dec  </td>
+                        <td>Feb – Mar</td>
+                        </tr>
+                    
+
+
+                </table>
+                <h3>Different Methods of Growing Onions</h3>
+                <p>Onions can be grown in three different methods depending upon the purpose of their cultivation. </p>
+                <ul>
+                    <li>Seed sown in nursery and then transplanting the seedlings in mainfield </li>
+                    <li>Raising small bulblets for green onion production </li>
+                    <li>Broadcasting or Direct sowing </li>
+                </ul>
+                <h4>Nursery Management</h4>
+                <p>Preparation of nursery bed: For 1 acre main field, 0.05 acre i.e., 200 m2 of nursery area is required. Apply 200 kg of FYM mixed with 2 litre of Trichoderma harzianum at the time of last ploughing helps in controlling damping off, root rot, collar rot and other soil borne diseases. Prepare raised beds of 1 – 1.2 m width, 10 – 15 cm height and of convenient length. Maintain 70 cm distance between the beds.  </p>
+               <p>Seed rate: 3 – 4 kg seeds are required for 1 acre field. </p>
+                <p>Seed treatment: Before sowing, treat the seeds with Bavistin at 2 gm/lit of water for 1 kg seeds or in bio fungicide by mixing 8 – 10 gm of Trichoderma viride in 50 ml of water for 1 kg seed to prevent damping off and other diseases. </p>
+                <p>Sowing: Sow the seeds in line at 5 – 7.5 cm apart at 1 cm depth. After sowing, cover the seeds with fine soil, powdered FYM or vermicompost. Give light irrigation. Drip or sprinkler systems of irrigation can be adopted. Cover the beds with paddy straw or sugarcane leaves or grass to improve germination by maintaining required moisture and temperature. Drench the soil bed with Carbendazim 50% WP at 0.5 – 0.75 gm/lit water to prevent damping off. Add 0.5 kg/bed of 15:15:15 (NPK) after 10 days of sowing, if seedlings show nutrient deficiency symptoms. Mulched grass or straw can be removed after germination is completed.  </p>
+                <h3>Land preparation for main field </h3>
+                <p>Plough the field to a fine tilth and add 10 t of FYM at the time of last ploughing. Flat beds or broad bed furrows can be formed for transplanting the seedlings. Prepare flat beds of 1.5 – 2 m width and 4 – 6 m length. For broad bed furrows, prepare beds of 120 cm width and 15 cm height with 45 cm furrow spacing between two beds. Irrigate the beds before transplanting seedlings.  </p>
+                <h3>Transplanting of seedling from nursery </h3>
+                <p>Seedlings raised from seed sown nursery will be ready for transplanting within 6 – 7 weeks of sowing for kharif and 8 – 9 weeks for rabi. Transplant the seedlings with a spacing of 15 cm between the rows and 10 cm between the plants.  </p>
+                <h3>Water Management</h3>
+                <p>Onion is mainly grown as an irrigated crop. Frequency of irrigation depends upon the climatic conditions and soil type. Irrigate the field at the time of transplanting the seedling. Give another irrigation on 3rd day after transplanting. Then, depending upon the soil moisture irrigate at an interval of 10 – 15 days. Stop irrigating the field 10 days before harvest. Avoid over watering or less watering as it may affect onion growth and development. Drip or sprinkler irrigation systems can also be adopted. </p>
+                <h3>Crop Rotation and Mixed cropping </h3>
+                <p>Onion can be grown as an intercrop with sugarcane during the initial 5 months after planting sugarcane. They can be rotated with legumes, corn, brassica and solanaceous crops. Onions are heavy feeders and can quickly deplete the soil of nutrients. Rotating onions with legume crops can help to replenish the soil with nitrogen. Corn, on the other hand, is a non-host for onion pests and diseases, which can help to reduce the build-up of these problems in the soil. Similarly, rotating brassica and solanaceous crops with onions can help to maintain soil health and prevent the build-up of pests and diseases.</p>
+                <h3>Harvesting </h3>
+                <p>Time of harvesting depends on the purpose for which the crop was planted. For dry onions, harvesting can be done in 5 months while for green onions, harvesting can be done in 3 months after harvesting. For harvesting rabi onion, the indication is 50% of neck/top falling over. Harvesting is done by manually uprooting the bulbs. But for kharif seasons, since the top does not fall over, the sign of harvest is change in colour of leaves to slight yellow and red pigmentation on bulbs. During hot days when soil is hard, use hand hoe to pull out the bulbs. Spray the crop with Carbendazim 2 gm/lit of water which will help harvested onion protect from any kind fungal infections after harvest. </p>
+                <h3>Curing</h3>
+                    <p>After harvesting, onions need to be cured to prolong the shelf life, for proper development of skin colour and remove field heat before storage. For curing, spread them out in the field without direct exposure to sun by covering the onion bulbs with foliage of other bulbs in small heap.  Allow the onions to dry for 3 –5 days, until the leaves and stems are completely dry and brittle. After complete drying, cut the leaves leaving about 2 – 2.5 cm tops above the bulb.  </p>
+                <h3>Storage</h3>
+                <p>Once the onions are cured, they can be stored in a cool, dry location. It is important to store them in a well-ventilated area to prevent mold and rot. Onions can be stored for several months if they are properly cured and stored.  </p>
+                <h3>New technology helps farmers improve onion shelf life</h3>
+                <center>
+                    <div  style="display: inline-block; text-align: center; margin-right: 20px;">
+                        <img src="./images/onionent.jpg" style="width:300px; height:auto">
+                        
+                    </div>
+                    
+                </center>
+                
+                <p>recently farmers have been embracing the Artificially Aerated Onion Storage Technology (AAOST), which is designed to increase the shelf life of harvests, and, ultimately, farmers’ income.
+
+First piloted by SAA-Nigeria under the Kano State Agropastoral Development Project (KSADP), the technology has been widely accepted across three administrative subdivisions in Kano State.</p>
+<p>Mallam Sanusi Abdullahi commented "Before the intervention, onion farmers in the region spent several years looking for dependable and cost-effective storage methods to cut post-harvest losses and sustain their businesses, but often with little success. The AAOST facility has reduced onion storage losses by about three-fold, barely six months after it was commissioned for use."</p>
+<p>"This storage technology by SAA is very effective; we stored 30 bags for six months, and we were able to recover almost everything, only two bags perished, compared to last year where half the onions stored perished – incredible! As a result, most of our colleagues left to explore other businesses to sustain their families. But with the introduction of SAA’s new onion storage technology, all these are stories of the past now,"A solar-powered fan keeps the Onion neck tissue and outer scales dry. The system is programmed to work 12-hours per day and the fans only kick in every alternate hour, to avoid too much air flow across the bulbs, which can lead to more losses.</p>
+ he said.</p>
+ <p>Due to its proven success rate, ease of use and low maintenance cost, onion farmers are now willing to increase the number of aerated storage facilities in their locations. Each unit costs USD 6,500, equivalent to NGN 2,860,000, and the association’s leaders have started mobilizing members to raise funds to expand their facilities.
+
+Driven by the success of the AAOST facilities in 2022 SAA, through the KSADP, is establishing an additional 20 facilities this year to help address onion storage losses and to boost farmers’ income in the state.</p>
+<p>
+                   
+        `,
+            'Potato': `
+            <center>
+                <div  style="display: inline-block; text-align: center; margin-right: 20px;">
+                    <img src="./images/potato.jpg" style="width:500px;">
+                   
+                </div>
+                
+            </center>
+    
+                <p>The potato, which originated in South America, is today grown all over the world. It is a member of the nightshade family, Solanaceae, and is the world's most significant food crop. Potatoes are high in vitamins and minerals. According to the 2018 data, potato production was 368 million tonnes. Raw potatoes contain a lot of water and starch.
+
+</p>
+<p>Seed potatoes and tubers are used to grow potatoes. Potatoes are used in a variety of cuisines, chips, and for industrial purposes such as the manufacturing of starch and alcohol.</p>
+<p>Moving on to potato cultivation, all the requirements and how to boost production for a doubled earning. Continue reading to the end to get all of the facts.</p>
+<h3>Soil and Climatic Conditions Required</h3>
+<p>Potatoes can be cultivated in a variety of soil types, including loamy soil, sandy loam, silt loam, and clay soil. Soil should be loose in order to provide less resistance to tuber enlargement. The soil must be fertile and well-drained. Potato cultivation requires acidic soil with a pH range of 4.8 to 5.4. The potato is classified as a cool-weather crop.</p>
+<p>Potato vegetative growth is best at temperatures of 24 degrees Celsius, and tuber growth is best at temperatures of 20 degrees Celsius.</p>
+<h3>How to Prepare Land</h3>
+<p>The bed should be prepared by ploughing the land to a depth of 20-25 cm and then harrowing it. Before seeding, make sure the soil has enough moisture.</p>
+<h3>Sowing Technique</h3>
+<p>Potato is propagated by tubers. Tubers are thick underground stems also called stolon.</p>
+<h3>Sowing time and Seed Selection</h3>
+<p>Potatoes are grown in the Rabi season between October and November, when the highest and minimum temperatures are 30 Degree Celsius and 20 degrees Celsius, respectively. The seeds/tubers used should be medium in size (20-125 g weight) and bought from a reputable source.</p>
+<h3>Seed Treatment</h3>
+<p>Potato seed/tuber must be kept in a cool, shady place for one to two weeks after being removed from cold storage to allow sprouts to emerge. Tubers can be treated with Gibberellic acid 1g/lit of water and then dried in a shady place before being kept in an aerated chamber for 10 days to achieve uniform sprouts. To prevent tuber rotting, soak tubers in a 0.5 percent Mancozeb solution for 10 minutes.</p>
+<h3>Manure and Fertilizer Requirement:</h3>
+<p>Apply 250-400 g/ha Farm Yard Manure and for fulfilling nutrients requirement, 120-160 kg/ha Nitrogen, 80-120 kg/ha Phosphorus and 80-120 kg/ha Potassium. All these should be applied to the soil 2-3 weeks before plantation. At the time of sowing, apply 3/4th dose of Nitrogen, and a full dose of Phosphorus and Potassium fertilizer. Remaining, 1/4th dose of Nitrogen fertilizer at the time of earthing up operation, after 30-40 days of sowing.</p>
+<h3>Pests</h3>
+<p>Aphid- They cause curling and deformation of young leaves. Cut the foliage according region timing. And spray Actara 25WG600g/ha.</p>
+<p>Leaf eating caterpillars- They feed on potato leaves and damage them. Spray Profenofos @ 2ml</p>
+<p>Cut Worms- They cut sprout at ground level and damages the crop. Spray Tracer 48 SC 200 ml/ha.</p>
+<p>Potato tuber moth- This is the most common pest in both the field and the storage. To protect the crop from this, use only healthy seeds and well-decomposed cow manure. It is a very effective approach to cover the soil with a 2-inch layer of sand.</p>
+<h3>Irrigation Requirement</h3>
+<p>Potato crops require frequent irrigation, depending on soil moisture. Pre-sowing irrigation, irrigation after 3-4 days of sowing, and rest mild irrigations total 5-6 irrigations. Irrigation must be turned off 10-12 days prior to harvesting.</p>
+                <center>
+                    <div  style="display: inline-block; text-align: center; margin-right: 20px;">
+                        <img src="./images/onion1.jpg" style="width:400px;">
+                       
+                        
+                    </div>
+                </center>
+                <h3><center>TuberScan</h3>
+                    <p>The project uses field-based radar technology originally developed for military use, which has been specifically adapted to the agricultural sector, using signals to monitor crop performance and provide insights into yield.</p>
+                    <p>Now under development, the TuberScan system aims to help growers identify under-performing areas and allow targeted input applications of fertiliser, fungicides and irrigation to reduce costs and improve yield.</p>
+                    <p>The project uses field-based radar technology originally developed for military use, which has been specifically adapted to the agricultural sector, using signals to monitor crop performance and provide insights into yield.</p>
+                    <p>A prototype scanner which attaches to existing farm machinery is now under development, with future plans to apply this to robotic technology which will enable autonomous scanning</p>
+                    <p>The device is expected to be commercially available to growers by 2024. It is recommended for use three to five times during the growing season, to provide data to users during key growth stages.</p>
+        `,
+        };
+    
+        const cropDetailElement = document.getElementById('crop-details');
+        cropDetailElement.innerHTML = cropDetails[cropName];
+    }
+    </script>
+</body>
+</html>

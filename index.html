@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      /* Apply smooth scrolling to the entire page */
+      html {
+          scroll-behavior: smooth;
+      }
+  </style>
+    <link rel="stylesheet" href="./styles/common.css" />
+    <link rel="stylesheet" href="./styles/index.css" />
+    <link rel="stylesheet" href="./styles/navbar.css" />
+    <title>DualPathAgriTech</title>
+  </head>
+  <body>
+    <section class="home-main">
+      <nav class="navbar">
+        <div class="brand">
+          <ul class="navlist">
+            <i class="fa fa-times" aria-hidden="true"></i>
+            <li class="nav-item"><a href="#about">About</a></li>
+            <li class="nav-item">
+            <a href="#">CropTypes</a>
+                  <ul class="dropdown">
+                    <li><a href="./pricing.html">Fruits</a></li>
+                    <li><a href="./staplecrops.html">StapleCrops</a></li>
+                    <li><a href="./vegetables.html">Vegetables</a></li>
+                  </ul>
+          </li>
+            <li class="nav-item"><a href="./ent.html">EmergingNewTechnologies</a></li>
+            <li class="nav-item"><a href="./organic.html">OrganicFarming</a></li>
+          </ul>
+        </div>
+        <div id="google_translate_element">
+        <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+        <script>
+         function googleTranslateElementInit(){
+             new google.translate.TranslateElement(
+                 {pageLanguage:'en'},
+                 'google_translate_element'
+             );
+         }
+        </script>
+      </nav>
+
+      <div class="main-content">
+        <h1 class="logo">DualPath<span>AgriTech</span></h1>
+      </div>
+             
+    </section>
+
+    <section class="about" id="about">
+      <h1>About</h1>
+      <div class="about-sub">
+        <img src="./images/about_pic1.jpg" alt="upload" />
+        <div class="sub-sub-about">
+          <p>
+            Welcome to DualPathAgriTech, your comprehensive source for modern farming techniques,
+            sustainable practices of different crops. We are passionate about empowering farmers, growers,
+            and agriculture enthusiasts with the knowledge and tools they need to thrive in today's ever-changing agricultural landscape.
+          </p>
+        </div>
+      </div>
+      <div class="about-sub">
+        <div class="sub-sub-about">
+          <p>
+          We aim to provide a platform where farmers of all levels of experience can
+          Explore in-depth information about a wide variety of crops, from staples like wheat and corn to specialty crops like organic vegetables and fruits. 
+          Discover the best practices for planting, cultivating, and harvesting each crop.
+          </p>
+        </div>
+        <img src="./images/about_pic2.jpg" alt="upload" />
+      </div>
+    </section>
+
+    
+
+    <div class="copyright">
+      &copy; All rights reserved by DualPathAgriTech
+  </div>
+</html>

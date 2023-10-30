@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DualPath AgriTech</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f7f4; /* Soft greenish-blue background */
+        }
+
+        header {
+            background-color: #2b5b84; /* Dark blue header */
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            padding: 20px;
+        }
+
+        #crop-list {
+            flex-basis: 30%;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        #crop-details {
+            flex-basis: 70%;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        button {
+            cursor: pointer;
+            display: block;
+            margin-bottom: 10px;
+            border: none;
+            padding: 10px;
+            width: 100%;
+            text-align: left;
+            font-size: 18px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #ddd;
+        }
+
+        #back-button {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: #2b5b84; /* Dark blue "Back" button */
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+
+        /* Add styles for the heading */
+        #crop-heading {
+            background-color: #70ad47; /* Green heading background */
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            position: relative;
+        }
+
+        /* Add a line under the heading */
+        #crop-heading::after {
+            content: '';
+            display: block;
+            width: 100%;
+            height: 3px;
+            background-color: #ff5733; /* Red line color */
+            position: absolute;
+            bottom: 0;
+            left: 0;
+        }
+
+        /* Add individual button colors */
+        #crop-list button:nth-child(1) {
+            color: #0d0d0c;
+            background-color: #991515; /* Apple */
+        }
+        
+        #crop-list button:nth-child(2) {
+            color: #000000;
+            background-color: #C9CC3F; /* Peer */
+        }
+        
+        #crop-list button:nth-child(3) {
+            color: #020202;
+            background-color: #DDA0DD; /* Plum */
+        }
+        
+        #crop-list button:nth-child(4) {
+            color: #000000;
+            background-color: #FFE5B4; /* Peach */
+        }
+    </style>
+</head>
+<body>
+    <button id="back-button" onclick="goBack()">Back</button>
+    <header>
+        <h1 style="font-size: 36px;">DualPath AgriTech</h1>
+    </header>
+    <div class="container">
+        <div id="crop-list">
+            <h2 id="crop-heading">Temperate Fruit Crops</h2>
+            <button onclick="showCropDetails('Apple')">Apple</button>
+            <button onclick="showCropDetails('Peer')">Peer</button>
+            <button onclick="showCropDetails('Plum')">Plum</button>
+            <button onclick="showCropDetails('Peach')">Peach</button>
+            <!-- Add more fruit crops here with respective colors -->
+        </div>
+        <div id="crop-details">
+            <!-- Crop details will be displayed here -->
+        </div>
+    </div>
+
+    <script>
+        function showCropDetails(cropName) {
+            const cropDetailElement = document.getElementById('crop-details');
+            cropDetailElement.innerHTML = cropDetails[cropName];
+        }
+
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+
+    <script>
+        function showCropDetails(cropName) {
+            const cropDetails = {
+                'Apple': `
+                <center>
+                    <div  style="display: inline-block; text-align: center; margin-right: 20px;">
+                        <img src="https://agritech.tnau.ac.in/horticulture/images/fruits/apple/white_dotted_red.jpg" style="width:200px; height:200px; border-radius: 50%;">
+                        <p>White Dotted Red</p>
+                    </div>
+                    <div  style="display: inline-block; text-align: center; margin-right: 20px;">
+                        <img src="https://agritech.tnau.ac.in/horticulture/images/fruits/apple/american_apirogue.jpg" style="width:200px; height:200px; border-radius: 50%;">
+                        <p>American Apirogue</p>
+                    </div>
+                    <div  style="display: inline-block; text-align: center; margin-right: 20px;">
+                        <img src="https://agritech.tnau.ac.in/horticulture/images/fruits/apple/chamur.png" style="width:200px; height:200px; border-radius: 50%;">
+                        <p>Chamur</p>
+                    </div>
+                </center>
+        
+                    <h3>Varieties</h3>
+                    <p>The varieties with warm winter resistance with low chilling requirements alone are suitable to the hills of Tamil Nadu.</p>
+                    <h3>Early varieties</h3>
+                    <p>These varieties bears yield during April – May.Irish Peach and Zouches Pipin are popular early varieties</p>
+                    <h3>Mid season varieties</h3>
+                    <p>The popular mid season varieties are KKL 1, Carrington and Winterstein.</p>
+                    <h3>Late varieties</h3>
+                    <p>These varieties bears yield during August – September. Rome Beauty, Parlin’s Beauty and KKL 1 are early varieties.</p>
+                    <h3>Soil and climate</h3>
+                        <p>The varieties with warm winter resistance with low chilling requirements alone are suitable to the hills of Tamil Nadu.</p>
+                    <h3>Season</h3>  
+                    <p>Planting spreads from June to December</p>
+                `,
+                'Peer': `
+        
+                    <h3>Varieties</h3>
+                    <p>Common pear, Kieffer, New Pear, William and Jargonelle are the commonly cultivated Pear varieties in Tamil Nadu.</p>
+                    <h3>Soil and climate</h3>
+                        <p>Red laterite soil with good drainage and high organic matter content is ideally suited for commercial condition. This can also be grown at an elevation of above 1200 m with a soil pH 5.8 to 6.2.</p>
+                        <h3>Season</h3>  
+                    <p>Planting spreads from June to December</p>
+                `,
+                'Plum': `
+    
+                     <h3>Varieties</h3>
+                    <p>Early: Rubio.
+                       Mid - season: Hale,GaviotaandAbundance (June–July).
+                        Late:Shiro,Kelsey and Satsuma. Hale has to be planted along with other varieties to enhance pollination and fruit set (July–August).</p>
+                    <h3>Soil and climate</h3>
+                        <p>Red lateritic soil with good drainage is suitable getting higher yield in plum. The soil pH should be around 5.8 to 6.2 and rich in organic matter. This can be grown above 1200 m elevation..</p>
+                    <h3>Planting material</h3>  
+                    <p>One year old budded plants may be planted during June - July or October - December with a spacing of 4 x 4 m in pits of 60 cm x 60 cm x 60 cm size.</p>
+                    <h3>Planting season</h3>  
+                    <p>Ideal planting season is June to November</p>
+                    <h3>Training and pruning</h3>  
+                    <p>he growing points tipped at a height of 50 – 60 cm to allow the side shoots to develop. Open centre system of training is adopted in this crop. Pruning can be done during December – January. Dried, dead, diseased water shoots and criss - cross branches are removed</p>
+                `,
+                'Peach': `
+    
+                    <h3>Varieties</h3>
+                    <p>In April – May early season varieties like Killikrankie and Floridasun are suited for cultivation. Mid-season varieties like Shaw Pasand are suited for planting during June – July. However, Red Shanghai variety can be best planted during July – August.</p>
+                    <h3>Soil and climate</h3>
+                        <p>Red lateritic soil with good drainage and high organic matter is suitable. This can be grown at an elevation of 2000 m with a soil pH of 5.8 to 6.2.</p>
+                    <h3>Planting material</h3>  
+                    <p>One year old budded plants are used as planting material.</p>
+                    <h3>Planting season</h3>  
+                    <p>The ideal planting season is June – December.</p>
+                    <h3>Training and pruning</h3>  
+                    <p>Open centre system of training is adopted for getting higher yield. Dried, diseased, water shoots and criss - cross branches may be removed annually during December – January.</p>
+               
+    `,
+        };
+    
+        const cropDetailElement = document.getElementById('crop-details');
+        cropDetailElement.innerHTML = cropDetails[cropName];
+    }
+    </script>
+</body>
+</html>-

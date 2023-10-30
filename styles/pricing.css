@@ -1,0 +1,140 @@
+section{
+    background: url('../images/meditarean.webp') no-repeat;
+    background-size: cover;
+    min-height: 100vh;
+}
+
+section > h1{
+    color: #fff;
+    text-align: center;
+    margin: 2rem 0;
+    font-size: 2.5rem;
+    
+}
+
+ul{
+    list-style:none;
+  }
+  
+  ul li{
+    display:inline-block;
+    position:relative;
+  }
+  ul li a{
+    display:block;
+    padding:50px 5px;
+    text-decoration:none;
+    text-align:center;
+    font-size:20px;
+  }
+  ul li ul.dropdown li{
+    display:block;
+  }
+  
+  ul li ul.dropdown{
+    width:100%;
+    position:absolute;
+    z-index:999;
+    display:none;
+  }
+  
+  ul li:hover ul.dropdown{
+    display:block;
+  }
+
+.pricing-cards{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: stretch;
+    flex-wrap: wrap;
+    padding: 3rem;
+    margin-top:auto;
+}
+
+.pricing-card{
+    margin-top:auto;
+    background-color: #fff;
+    border-radius: 10px;
+    text-align: center;
+    margin:1rem;
+    width: 275px;
+    min-height: 400px;
+    padding: 50px 10px;
+    box-shadow:1px 2px 10px 1px #333;
+    display:flex;
+    flex-direction: column;
+}
+
+.pricing-card .plan{
+    font-size: 2rem;
+   
+    line-height:100%;
+    margin-bottom:1px;
+}
+
+.pricing-card .description{
+    text-align:justify;
+    line-height:130%;
+    font-size: .9rem;
+    margin-top: 50px;
+    margin-bottom:auto;
+}
+
+.pricing-card > a{
+    display:inline-block;
+    background-color: royalblue;
+    text-decoration: none;
+    color: #fff;
+    padding:20px 45px;
+    border-radius: 5px;
+    transition: .5s ease-in-out;
+    margin-top:auto;
+}
+
+.pricing-card > a:hover{
+    margin-top:auto;
+    background-color: rgb(31, 60, 150);
+}
+
+
+
+.pricing-card .price{
+    font-weight: bold;
+    font-size: 2rem;
+    padding: 10px 0;
+    margin-top:1.5rem;
+    margin-top:auto;
+}
+.pricing-card .points{
+    display:grid;
+    margin-top: inherit;
+    align-self: center;
+
+}
+.pricing-card .feature{
+    margin-bottom:2.0rem;
+    margin-top:auto;
+    
+   
+}
+
+.pricing-card .price span{
+    font-size: 1rem;
+}
+
+.pricing-card ul{
+    text-align: left;
+    padding: 0 1rem;
+}
+
+.pricing-card ul li{
+  
+    font-size: .9rem;
+    list-style-type: circle;
+    padding-top: 5px;
+}
+
+.description p{
+    text-align:justify;
+    margin-bottom:20px;
+}

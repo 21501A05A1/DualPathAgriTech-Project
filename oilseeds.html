@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DualPath AgriTech</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f7f4; /* Soft greenish-blue background */
+        }
+
+        header {
+            background-color: #2b5b84; /* Dark blue header */
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            padding: 20px;
+        }
+
+        #crop-list {
+            flex-basis: 30%;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        #crop-details {
+            flex-basis: 70%;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        button {
+            cursor: pointer;
+            display: block;
+            margin-bottom: 10px;
+            border: none;
+            padding: 10px;
+            width: 100%;
+            text-align: left;
+            font-size: 18px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #ddd;
+        }
+        table,
+        th,
+        td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+    th {
+        text-align: left;
+    }
+
+        #back-button {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: #2b5b84; /* Dark blue "Back" button */
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+
+        /* Add styles for the heading */
+        #crop-heading {
+            background-color: #70ad47; /* Green heading background */
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            position: relative;
+        }
+
+        /* Add a line under the heading */
+        #crop-heading::after {
+            content: '';
+            display: block;
+            width: 100%;
+            height: 3px;
+            background-color: #ff5733; /* Red line color */
+            position: absolute;
+            bottom: 0;
+            left: 0;
+        }
+
+        /* Add individual button colors */
+        #crop-list button:nth-child(1) {
+            color: #0d0d0c;
+            background-color: #f0f0f0; /* Green for Mango */
+        }
+        
+        #crop-list button:nth-child(2) {
+            color: #000000;
+            background-color: #fff; /* Yellow for Banana */
+        }
+        
+        #crop-list button:nth-child(3) {
+            color: #020202;
+            background-color: #fff; /* Brown for Sapota */
+        }
+        body {
+     top: 0px !important;
+    }
+
+    body > .skiptranslate > iframe.skiptranslate {
+     display: none !important;
+     visibility: hidden !important;
+    }
+        
+    </style>
+</head>
+<body>
+    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <script>
+     function googleTranslateElementInit(){
+         new google.translate.TranslateElement(
+             {pageLanguage:'en'},
+             'google_translate_element'
+         );
+     }
+    </script>
+    <button id="back-button" onclick="goBack()">Back</button>
+    <header>
+        <h1 style="font-size: 36px;">DualPath AgriTech</h1>
+        <div id="google_translate_element"></div>
+    </header>
+    <div class="container">
+        <div id="crop-list">
+            <h2 id="crop-heading">Oilseeds</h2>
+            <button onclick="showCropDetails('sunflower')">sunflower</button>
+            <button onclick="showCropDetails('groundnut')">groundnut</button>
+            <button onclick="showCropDetails('soybean')">Soybean</button>
+           
+            <!-- Add more fruit crops here with respective colors -->
+        </div>
+        <div id="crop-details">
+            <!-- Crop details will be displayed here -->
+        </div>
+    </div>
+
+    <script>
+        function showCropDetails(cropName) {
+            const cropDetails = {
+                'Mango': 'Mango is a tropical fruit., ',
+                'Banana': 'Banana is a tropical fruit...',
+                'Sapota': 'Sapota is a tropical fruit...',
+                'Guava': 'Guava is a tropical fruit...',
+                'Grapes': 'Grapes are a sub-tropical fruit...',
+                'Amla': 'Amla is a tropical fruit...',
+                'Pomegranate': 'Pomegranate is a tropical fruit...',
+                'Black Plum': 'Black Plum is a tropical fruit...'
+                // Add more crop details here
+            };
+
+            const cropDetailElement = document.getElementById('crop-details');
+            cropDetailElement.innerHTML = cropDetails[cropName];
+        }
+
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+
+    <script>
+        function showCropDetails(cropName) {
+            const cropDetails = {
+                'sunflower': `
+                <center>
+                    <div  style="display: inline-block; text-align: center; margin-right: 20px;">
+                        <img src="./images/sunflower.jpg" style="width:700px; height:auto">
+                        
+                    </div>
+                    
+                </center>
+        
+                   
+                    <p>Sunflower, the name "Helianthus" is derived from ‘Helios’ meaning ‘sun’ and ‘anthus’ meaning ‘flower’. It called as sunflower as it follow the sun, always turning toward its direct rays. It is important oilseed crop of country. Sunflower oil is most popular because of its light color, bland flavour, high smoke point and high level of linoleic acid which is good for heart patient. Sunflower seed contains about 48– 53 percent edible oil.
+
+</p>
+
+
+                    <h3>SOIL</h3>
+                    <p>It can be grown on wide range of soil from sandy loam to black soils. It gives best result when grown under fertile, well-drained soil. It can tolerate slight alkaline soil. Avoid sowing in acidic also waterlogging soil. Ideal pH is around 6.5-8. Crop rotation follows in Punjab, Rice/Maize - Potato-Sunflower, Rice-Toria-Sunflower, Cotton-sunflower, Sugarcane-sugarcane ratoon-sunflower and kharif-fodder - toria-sunflower.</p>
+                    <h3>LAND PREPARATION</h3>
+                    <p>To prepare fine seed bed, carry out two to three ploughing operation followed by planking. To obtain good yield, complete sowing should be done by January end. In case of delay in sowing, when it is to be done in February, use transplanting method as direct sowing cause reduction in yield also delay sowing causes high pest and disease incidence.</p>
+                    
+                    <h3>SOWING</h3>
+                    <P>To obtain good yield, complete sowing of sunflower by January end. In case of delay in sowing, when it is to be done in February, use transplanting method as direct sowing cause reduction in yield also delay sowing causes high pest and disease incidence.</p>
+                    <P>Use spacing of 60 cm between the rows while keep plant to plant distance of 30 cm.
+</p>
+                        <p>Sow the seeds at depth of 4-5 cm.
+</p>
+<p>For sowing dibbling method used. Also placing seeds on flat bed or ridge with help of row crop planter is used for sunflower sowing.
+
+Use transplanting method in case of delay sowing. 30 sq.m of nursery is suitable for transplanting one acre land. Use seed rate of 1.5 kg. Prepared nursery 30 days before transplanting. For preparing seed bed, mix 0.5 kg Urea and 1.5 kg Single superphosphate. Cover seed bed with transparent polythene sheet and prepared tunnel. Remove polythene sheet after seedling emergence. When seedling are at 4 leaf stage, they are ready for transplanting. Irrigate nursery before uprooting crop for transplanting.</p>
+                    <h3>SEED</h3>
+                    <p>Use seed rate of 2-3 kg/acre for sowing. For hybrid use seed rate of 2-2.5kg/acre.
+</p>
+<p>Before sowing for quick germination, soak seeds in water for 24 hour and shade dry. Then treat seeds with Thiram@2gm per kg of seeds. It will protect seeds from soil borne pest and disease. To protect crop from downy mildew, treat seeds with Metalaxyl@6gm per kg of seeds. Treat seeds with Imidacloprid@5-6ml per kg of seeds.    
+
+</p>
+<h3>WEED CONTROL</h3>
+<p>Keep sunflower field weed free during first 45days of crop period and irrigate the crop at critical stages. Two to three weeks after sowing, complete first weeding operation followed by second weeding operation three weeks afterwards. To control weeds chemically, spray them with Pendimethalin@1Ltr in 150-200 Ltr per acre as pre-emergence herbicide within 2-3 days after sowing. Protect crop from lodging when crop is 60-70 cm tall but before flowering complete earthling up operation.</p>
+<h3>IRRIGATION</h3>
+<p>Depending upon soil type, weather condition, generally nine to ten irrigation are required to crop. Apply first irrigation one month after sowing. When crop is at 50% flowering, soft and hard dough stage is critical for irrigation. Water stress during this stage leads to severe yield loss. Avoid excessive or two frequent irrigation as it increases chances of wilt and root rot attacked. In case of heavy soil apply irrigation at interval of 20-25 days and 8-10 days in case of light soil.
+
+Honey bees play important role in increasing seed set, If honeybee activity is low, then supplemental hand pollination on alternate days preferably in morning hours, between 8-11 am.for about 7-10 days for this purpose cover hand with muslin cloth.</p>
+ <h3>HARVESTING</h3>
+ <p>Complete harvesting of crop when all leaves are dry and back of head turns lemon yellow color. Do not delay in harvesting as it leads to lodging of crop also chances of termite attacked increases.</p>
+ <h3>POST-HARVEST</h3>
+ <p>After separations of heads, dry them for 2-3 days. Proper drying leads to easy separation of seeds. Threshing of heads can be done either manually by beating them with sticks or rubbing them or with power operated thresher. After threshing, dry seed before storage, bring moisture content to 9-10%.</p>
+ <h3>Drones are planting sunflowers on the modern farm </h3>
+ <p>A farm in Queensland, Australia, could be home to the first flower in the world planted by a drone.</p>
+
+<p>It's part of an experiment in which drone pilot and farmer Roger Woods deposits tens of thousands of sunflowers using a single, aerial drone.</p>
+
+<p>The unmanned aircraft distributes 45,000 seeds per hectare with the aim of sprouting 30,000 plants.</p>  
+<p>"This sunflower crop, to the best of our knowledge, is the first sunflower crop planted entirely by drone. So a big agricultural drone that we use commercially, spreads the seeds," says Woods.</p>
+<p>The technique is already used for crops like barley, lucerne (alfalfa) and wheat.</p>
+<p>The farmers say the technique is less invasive than traditional planting methods as it creates less soil disturbance and they're hopeful other growers will soon adopt the technology.</p>
+
+                    
+
+
+                `,
+                'groundnut': `
+                <center>
+                    <div  style="display: inline-block; text-align: center; margin-right: 20px;">
+                        <img src="./images/Groundnut.jpg" style="width:500px">
+                       
+                    </div>
+                    
+                </center>
+        
+                   
+                    <p>Groundnut is a significant oilseed, ideal for cultivation in tropic regions of the country. Groundnut (Arachis hypogaea), is a species in the legume or "bean" family. It is considered to be local in South America. These are known by many other local names such as earthnuts, ground nuts, goober peas, monkey nuts, pygmy nuts and peanuts. Despite its name and appearance, the peanut is not a nut, but rather a legume.</p>
+                    <p>Groundnut is the third most important oilseed of world. In India, it is available throughout the year. It is important source of protein grown mostly under rain-fed conditions. In India, Uttar Pradesh, Madhya Pradesh, Rajasthan, Gujarat, Maharashtra, Karnataka, Andhra Pradesh and Tamil Nadu are major groundnut growing states.</p>
+                    <h3>Soil and Land Preparation</h3>
+                    <p>Groundnut is raised in a sandy loam as well as well drained sandy clay loam soil. Deep well- drained soil with pH of 6.5 -7 as well as having great fertility are perfect for groundnut cultivation. Spanish as well as Runner varieties are beneficial for good quality soil compared to the Virginia forms. The lack of pods is often rich in heavier grounds. An excellent climatic condition for better germination of groundnut is 31° C. Heavy and stiff clays are unsuitable for groundnut cultivation as the pod development is hampered in these soils.</p>
+                    <p>After harvesting of previous crop, plough the land twice and pulverised soil to obtained good tilth of soil. Give a third ploughing if necessary for rainfed crop, in the end of June or early July. Use harrow or tillers for cultivation purpose. When land is heavily infested with perennial weeds, very deep ploughing is needed. For irrigated crop, make beds of convenient size depending upon topography. Nature of irrigation source etc. Application of 5-7 ton/acre of chicken manure or 10 ton/acre of farm yard manure or well decomposed cow dung should be done 1 month before sowing. It helps to improve soil structure along with good plant growth.  
+ </p>
+                    <h3>Sowing</h3>
+                    <p>Sow the rainfed crop with the advent of monsoon in the last week of June or in the Ist week of July. Complete sowing as early as possible as delay sowing results in reduction in yield. Where irrigation facility is available sow kharif groundnut from April end to May end.  
+
+</p>
+                    <p>Spacing to be adopted is depends upon type of variety. i.e., for semi spreading variety (M 522) use spacing of 30cm between the rows and 22.5 cm between plants and for bunchy type varieties (SG 99, SG84) use spacing of 30x15 cm.</p>
+                    <p>Healthy and well developed pods should be hand shelled with a suitable groundnut sheer about fornight before sowing. Pods are sown with help of seed drill at depth of 8-10 cm at a seed rate of 38-40 kg/acre.
+
+                        </p>
+<h3>SEED</h3>
+<p>For sowing use seed rate of 38-40kg/acre.
+</p>
+<p>Use healthy and well developed kernels for sowing. Discard very small, shrivelled and diseased kernels. Carry out seed treatment with Thiram@5gm or Captan@2-3 gm/kg or Mancozeb@4g/kg or Carboxin or Carbendazim@2gm/kg of the kernels to avoid infestation from ground borne disease. After chemical treatment, treat the seeds with Trichoderma viride@4g/kg seed or Pseudomonas fluorescens@10gm/kg seed. Seed treatment will protect the young seedlings from root-rot and collar rot infection.</p>
+
+                    <h3>Weed Control </h3>
+                    <p>Weed control during first 45 days of growth period is essential for good yield. The most critical period is 3-6 weeks after sowing of crop. The average yield loss due to weed is about 30% whereas under poor management yield loss by weed may be 60%. Therefore carryout mechanical or chemical weed control during initial stage of crop growth.
+Give two hoeing after the first three weeks of sowing and then after second three weeks of sowing. No interculture would be done after the pegs have commmenced going underground. Apply Fluchoralin @ 600 ml per acre or Pendimethalin @ 1 ltr per acre as pre-emergence area followed by hand weeding once 36-40 days after planting.
+Accomplish earthing up during second hand weeding/late hand weeding (in herbicide application). It is an important operation in groundnut. Earthing up is to be done within 40-45 days after sowing as it helps for the penetration of pegs in the soil and also facilitates for increased pod development.
+
+</p>
+                    <h3>Irrigation</h3>
+                    <p>Irrigation for two or three time depending upon seasonal rainfall is necessary for good crop growth. Apply first irrigation at flowering stage. If the Kharif crop is caught in a long spell of draught, especially at the pod formation stage, supplemental irrigation is given, if water is available (In pod development stage, 2 - 3 irrigations are given depending on the soil type). Another irrigation a few days before the harvest may be given for full recovery for pods from soil.</p>
+                    <h3>Harvesting</h3>
+                    <p>Kharif sown crop is get ready to harvest in month of November. When plant show uniform yellowing of crop along with shedding of older leaves. Crop sown during April end - May end is ready for harvesting after the monsoons are over towards end of August and September. For efficient harvesting of crop, adequate moisture should be present in soil and crop should not be overripe. The tractor- mounted groundnut-digger shaker developed at the Punjab Agricultural University may be used for quick harvesting. Harvested plants are stacked for a few days for drying and stripped afterwards. After curing, collect the crop at one place and give 2-3 shakings and beatings daily for 2 to 3 days with a toothed rake or trangli to separate pods and leaves from the stalk. Collect the pods and leaves into a heap and winnow. Dried pods in sun for 4 or 5 days before storage.
+On cloudy days removed pods and then immediately place them in an air drier@27-38 degree centigrade for 2 days or until pods dry to constant mass (6-8%).</p>
+
+                    
+                    
+                    <h3>POST-HARVEST</h3>
+                    <p>After cleaning and grading, store pods in gunny bags and stack them up to 10 bags high in separated stocks so that air freely circulate among them. The bags should be piled on wooden plank to avoid damage due to dampness.
+
+Processed Peanuts: Apart from raw edible peanuts, India is also in a position to supply blanched peanuts, roasted salted peanuts and dry roasted peanuts and a variety of peanut based products.</p>
+
+Before the storage of grains to protect harvested stuff from pest and disease attack, mix 500 gm Neem seed dust with 10 Kg of seed. To protect stored grains from pests attacked Mix Malathion 50 EC@30 ml/3 Ltr of water. Spray for 1002meter storage area at every 15 days.</p>
+<h3>Farmers adopt new technology for high groundnut output</h3>
+<p>In what could revolutionalise groundnut farming system in India, a few dozens farmers in Gujarat have adopted Chinese-born mulching technology which has the capacity to yield up to three times more output than the existing conventional techniques in India.
+</p><p>Initially, the planting was done on pilot basis in 50 acres just to experience the benefit of this technology. The initial growth in roots, stems and leaves was satisfactory. Hence, farmers believe the plants under mulching sheets will yield higher as compared to the plants under open air.
+</p><p>Developed by Chinese agri scientists, Mulching Technology requires groundnut plants to be covered with special mulching plastic sheets for moisture protection and maintaining plant growth for maximum yield. Agriculture with mulch in the tropics promotes plant health and vigor; and improves nutrient and water retention in the soil, encourages soil microbial activity and worms, and suppresses weed growth. When properly executed, mulching can significantly improve the well-being of plants and reduce maintenance as compared to bare soil culture. Mulched plants have better vigor and, consequently have improved resistance to pests and diseases.</p>            
+<p>The biggest advantage of this technology is that the crop does not have to dependent on monsoon. The irrigation is done through mechanical means. Hence, the crop can be grown in off-monsoon season as well.</p>
+`,
+           
+            'soybean': `
+            <center>
+                <div  style="display: inline-block; text-align: center; margin-right: 20px;">
+                    <img src="./images/soybean.jpg" style="width:500px;">
+    
+                </div>
+                
+            </center>
+    
+                <p>Soybean called as golden beans is belongs to legume family. It is native of East Asia. It is a rich source of Protein also excellent source of fibre. Oil extracted from soybean contain small amount of saturated fat. In Punjab, it plays an important role in crop diversification.      </p>
+              
+                <h3>SOIL AND Land Preparation</h3>
+                <p>It gives good result, when grown on well drained, fertile loamy soils. pH of 6 to 7.5 is favourable for optimum yield of soybean. Water logged, saline/alkaline soils are not suitable for its cultivation. Low temperature affect crop severely.</p>
+                p>Prepared field by giving two to three ploughings followed by planking. </p>
+                <h3>Sowing</h3>
+                <p>First fortnight of June is best time for sowing Soybean.
+</p>
+                <p>While sowing use row to row spacing of 45 cm and plant to plant spacing of 4-7 cm.</p>
+                <p>Sow seeds at depth of 2.5-5 cm.</p>
+                <p>Sow seeds with help of seed drill.</p>
+               <h3>SEED</h3>
+               <p>Use seed rate of 25-30 kg for sowing in one acre land.
+</p>
+               <p>To protect seeds from soil borne diseases, treat seeds with Thiram or Captan@3 gm per kg of seeds.</p>
+
+
+               <h3>WEED CONTROL</h3>
+               <p>To keep field weed free, two hoeing are required, give first hoeing 20 days after sowing and second hoeing 40 days after sowing.
+
+To control weed chemically, after sowing, within two days, take spray of Pendimethalin@800 ml/acre in 100-200 ltrs of water.
+
+</p>
+
+               <h3>IRRIGATION</h3>
+               <p>Overall crop required three to four irrigation. Irrigation at time of pod filling stage is necessary. Water stress at this period will affect yield drastically. Apply irrigation depending upon rainfall conditions. No irrigation required in good rainfall conditions.</p>
+               <h3>HARVESTING</h3>
+               <p>Pods become dry and leaves changes their color to yellow and fall of, it is sign of crop is ready for harvesting. Harvest the crop with sickle or by hand. After harvesting, carry out threshing operation. </p>
+               <h3>POST-HARVEST</h3>
+               <p>After drying, carry out proper cleaning of seeds. Remove small size seeds, damaged seeds and crop stalks.
+ </p>
+        
+        `,
+            
+    
+        };
+    
+        const cropDetailElement = document.getElementById('crop-details');
+        cropDetailElement.innerHTML = cropDetails[cropName];
+    }
+    </script>
+</body>
+</html>

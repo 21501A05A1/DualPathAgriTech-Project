@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DualPath AgriTech</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f7f4; /* Soft greenish-blue background */
+        }
+
+        header {
+            background-color: #2b5b84; /* Dark blue header */
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            padding: 20px;
+        }
+
+        #crop-list {
+            flex-basis: 30%;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        #crop-details {
+            flex-basis: 70%;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        button {
+            cursor: pointer;
+            display: block;
+            margin-bottom: 10px;
+            border: none;
+            padding: 10px;
+            width: 100%;
+            text-align: left;
+            font-size: 18px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #ddd;
+        }
+
+        #back-button {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: #2b5b84; /* Dark blue "Back" button */
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+
+        /* Add styles for the heading */
+        #crop-heading {
+            background-color: #70ad47; /* Green heading background */
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            position: relative;
+        }
+
+        /* Add a line under the heading */
+        #crop-heading::after {
+            content: '';
+            display: block;
+            width: 100%;
+            height: 3px;
+            background-color: #ff5733; /* Red line color */
+            position: absolute;
+            bottom: 0;
+            left: 0;
+        }
+
+        /* Add individual button colors */
+        #crop-list button:nth-child(1) {
+            color: #0d0d0c;
+            background-color: #f0f0f0; /* Green for Mango */
+        }
+        
+        #crop-list button:nth-child(2) {
+            color: #000000;
+            background-color: #88ff20; /* Yellow for Banana */
+        }
+        
+        #crop-list button:nth-child(3) {
+            color: #020202;
+            background-color: #fcff41; /* Brown for Sapota */
+        }
+        
+        #crop-list button:nth-child(4) {
+            color: #000000;
+            background-color: #b8637e; /* Thick Green for Guava */
+        }
+        
+        #crop-list button:nth-child(5) {
+            color: #000000;
+            background-color: #90EE90; /* Light Green for Grapes */
+        }
+        
+        #crop-list button:nth-child(6) {
+            color: #000000;
+            background-color: #34ee0a; /* Green for Amla */
+        }
+        #crop-list button:nth-child(7) {
+            color: #000000;
+            background-color: #ee0a0a; /* Green for Amla */
+        }
+        #crop-list button:nth-child(8) {
+            color: #000000;
+            background-color: #e02853; /* Green for Amla */
+        }
+        #crop-list button:nth-child(9) {
+            color: #050505;
+            background-color: #b87474; /* Red for Pomogranate */
+        }
+    </style>
+</head>
+<body>
+    <button id="back-button" onclick="goBack()">Back</button>
+    <header>
+        <h1 style="font-size: 36px;">DualPath AgriTech</h1>
+    </header>
+    <div class="container">
+        <div id="crop-list">
+            <h2 id="crop-heading">Tropical and Sub-Tropical Fruit Crops</h2>
+            <button onclick="showCropDetails('Mango')">Mango</button>
+            <button onclick="showCropDetails('Banana')">Banana</button>
+           
+            <!-- Add more fruit crops here with respective colors -->
+        </div>
+        <div id="crop-details">
+            <!-- Crop details will be displayed here -->
+        </div>
+    </div>
+
+    <script>
+        function showCropDetails(cropName) {
+            
+            const cropDetailElement = document.getElementById('crop-details');
+            cropDetailElement.innerHTML = cropDetails[cropName];
+        }
+
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+
+    <script>
+        function showCropDetails(cropName) {
+            const cropDetails = {
+                'Mango': `
+                <center>
+                    <div  style="display: inline-block; text-align: center; margin-right: 20px;">
+                        <img src="https://agritech.tnau.ac.in/horticulture/images/fruits/mango/mango_v1.png" style="width:200px; height:200px; border-radius: 50%;">
+                        <p>Banganapalli</p>
+                    </div>
+                    <div  style="display: inline-block; text-align: center; margin-right: 20px;">
+                        <img src="https://agritech.tnau.ac.in/horticulture/images/fruits/mango/mango_v4.png" style="width:200px; height:200px; border-radius: 50%;">
+                        <p>Senthura</p>
+                    </div>
+                    <div  style="display: inline-block; text-align: center; margin-right: 20px;">
+                        <img src="https://agritech.tnau.ac.in/horticulture/images/fruits/mango/mango_v3.png" style="width:200px; height:200px; border-radius: 50%;">
+                        <p>Imam Pasand</p>
+                    </div>
+                </center>
+        
+                    <h3>Varieties</h3>
+                    <p>Neelum, Bangalora, Alphonso, Rumani, Banganapalli, Kalepad, Peter, PKM 1, PKM 2, Sendura, Jahangir, Mulgoa, Himayuddin, Paiyur 1, Mallika, Amrapali and Salem Bangalora, Arka Anmol, Arka Aruna, Arka Neelkiran, Arka Puneeth and Sindhu are popular varieties in mango.</p>
+                    <h3>Varieties suitable for Tamil Nadu</h3>
+                    <p>Banganapalli, Bangalora, Neelum, Rumani, Mulgoa, Alphonso, Senthura, Kalepad, Imam Pasand.</p>
+                    <h3>Processing varieties:</h3>
+                    <p>Alphonso,Banganapalli,Totapuri</p>
+                    <h3>Export varieties:</h3>
+                    <p>Alphonso,Banganapalli,Sendura</p>
+                    <h3>Soil and climate</h3>
+                        <p>Ideal soil for mango is red loamy. Good drainage is preferable for better establishment. Ideal pH range is from 6.5 to 8.0.</p>
+                        <div  style="display: inline-block; text-align: center; margin-right: 20px;">
+                            <img src="https://agritech.tnau.ac.in/horticulture/horti_fruits_clip_image005.jpg" style="width:200px; height:200px; border-radius: 50%;">
+                            <img src="https://agritech.tnau.ac.in/horticulture/horti_fruits_clip_image007.jpg" style="width:200px; height:200px; border-radius: 50%;">
+                            <p>Mango seedlings used for approach / epicotyl grafting </p>
+                        </div>
+
+                `,
+                'Banana': `
+                <center>
+                    <div  style="display: inline-block; text-align: center; margin-right: 20px;">
+                        <img src="https://agritech.tnau.ac.in/horticulture/BananaVarieties/BV_karpuravalli.png" style="width:200px; height:200px; border-radius: 50%;">
+                        <p>Karpuravalli</p>
+                    </div>
+                    <div  style="display: inline-block; text-align: center; margin-right: 20px;">
+                        <img src="https://agritech.tnau.ac.in/horticulture/BananaVarieties/BV_rasthali.png" style="width:200px; height:200px; border-radius: 50%;">
+                        <p>Rasthali</p>
+                    </div>
+                    <div  style="display: inline-block; text-align: center; margin-right: 20px;">
+                        <img src="https://agritech.tnau.ac.in/horticulture/BananaVarieties/BV_redbanana.png" style="width:200px; height:200px; border-radius: 50%;">
+                        <p>Red Banana</p>
+                    </div>
+                </center>
+        
+                    <h3>Varieties</h3>
+                    <p>Dessert 
+                        Robusta, Dwarf Cavendish, Grand Naine, Rasthali, Vayal vazhai, Poovan, Nendran, Red Banana, Karpooravalli, Co.1, Matti, Sannachenkadali, Udayam and Neypoovan are popular varieties in banana. Cavendish groups are generally prefered in export market.
+                        Culinary 
+                        Monthan, Vayal vazhai, Ash Monthan and Chakkia are cultivated for culinary purpose. Nendran is a dual purpose variety used for dessert and culinary.
+                        
+                        Hill areas
+                        The popular varieties of bananas suitable for hilly areas are Virupakshi, Sirumalai and Namarai. Red Banana, Manoranjitham (Santhana vazhai) and Ladan are also cultivated in hills.
+                    </p>
+                    <h3>Varieties</h3>
+                        <div  style="display: inline-block; text-align: center; margin-right: 20px;">
+                            <img src="https://agritech.tnau.ac.in/horticulture/BananaVarieties/BV_grandnine.png" style="width:200px; height:200px; border-radius: 50%;">
+                            <p>Grandnine</p>
+                            <img src="https://agritech.tnau.ac.in/horticulture/BananaVarieties/BV1_rasthali1.jpg" style="width:200px; height:200px; border-radius: 50%;">
+                            <p>Palayankotttan</p>
+                        </div>
+            `,
+            
+    
+        };
+    
+        const cropDetailElement = document.getElementById('crop-details');
+        cropDetailElement.innerHTML = cropDetails[cropName];
+    }
+    </script>
+</body>
+</html>
