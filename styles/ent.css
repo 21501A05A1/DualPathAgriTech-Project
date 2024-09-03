@@ -1,4 +1,4 @@
-*{
+/* *{
     margin:0px;
     padding: 0px;
     box-sizing:border-box;
@@ -6,8 +6,8 @@
 
 nav{
     background-color:rgb(14, 152, 154);
-}
-nav .brand a{
+} */
+/* nav .brand a{
     color: blue;
     text-decoration: none;
     font-size: 1.75rem;
@@ -24,7 +24,7 @@ nav ul li a{
     padding: 5px;
     transition: .3s ease;
     position: relative;
-} 
+}  */
 section{
     min-height: 100vh; 
 }

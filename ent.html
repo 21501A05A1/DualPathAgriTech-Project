@@ -4,9 +4,13 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable:no">
        <title>EmergingNewTechnologies</title>
+       <link rel="stylesheet" href="./styles/style.css" />
+       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+       <link rel="stylesheet" href="file:///E:/fontawesome/css/all.css">
        <link rel="stylesheet" href="./styles/common.css"/>
         <link rel="stylesheet" href="./styles/ent.css" />
-        <link rel="stylesheet" href="./styles/navbar.css" />
+        <link rel="stylesheet" href="./styles/index.css" />
+        <!-- <link rel="stylesheet" href="./styles/navbar.css" /> -->
     </head>
     <body>
         <section>
@@ -19,23 +23,41 @@
                            );
                        }
                       </script>
-              <nav>
-                  <b><a href="#">DualPathAgriTech</a></b> 
-                  <ul>
+            <nav>
+                <div class="logo">
+                    <div id="google_translate_element" ></div>
+                    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+                    <script>
+                        function googleTranslateElementInit() {
+                            new google.translate.TranslateElement(
+                                {pageLanguage: 'en'},
+                                'google_translate_element'
+                            );
+                        }
+                    </script>
+                </div>
+                <label for="btn" class="icon">
+                    <span class="fa fa-bars"></span>
+                </label>
+                <input type="checkbox" id="btn">
+                <ul>
                     <li><a href="./index.html">Home</a></li>
-                    <li><a href="#">CropTypes</a>
-                      <ul class="dropdown">
-                        <li><a href="./pricing.html">Fruits</a></li>
-                        <li><a href="staplecrops.html">StapleCrops</a></li>
-                        <li><a href="vegetables.html">Vegetables</a></li>
-                      </ul>
+                    <li>
+                        <label for="btn-1" class="show">Crop Types +</label>
+                        <a href="#">Crop Types</a>
+                        <input type="checkbox" id="btn-1">               
+                    <ul>
+                        <li><a href="./croptypes.html">Fruits</a></li>
+                        <li><a href="./vegetables.html">Vegetables</a></li>
+                        <li><a href="./staplecrops.html">StapleCrops</a></li>
+                    </ul>
                     </li>
                     <li><a href="./ent.html">EmergingNewTechnologies</a></li>
                     <li><a href="./organic.html">OrganicFarming</a></li>
-                    <li><div id="google_translate_element">
-                      </li>
-                  </ul>
-                </nav>
+                </ul>
+               
+               
+            </nav>
             <div class="container">
                 <!--<span>EmergingNewTechnologies</span>---->
                 <h3>EmergingNewTechnologies</h3>

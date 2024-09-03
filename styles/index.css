@@ -1,7 +1,7 @@
 .home-main {
   background: url("../images/bg.jpg") no-repeat;
-  box-sizing:border-box;
-  background-size: cover;
+  /* box-sizing:border-box;*/
+  background-size: cover; 
   /* background-attachment: fixed; */
    min-height: 100vh;
   /* object-fit:cover; */
@@ -24,9 +24,17 @@
 .nav-item {
   margin: 20px; /* Adjust the spacing between items */
 }
-
-.logo span {
-  color: var(--color-primary);
+.main-content .log{
+color: var(--color-primary);
+font-size:30px;
+font-weight:bold;
+padding-top:auto;
+}
+.log span {
+  color:hwb(227 24% 9%);
+ /* font-size:40px; */
+  
+  font-weight:bold;
 }
 
 ul{
@@ -80,7 +88,7 @@ ul li:hover ul.dropdown{
   margin: 0.5rem 0;
 }
 
-.gradient-btn {
+/* .gradient-btn {
   display: grid;
   place-items: center;
   text-decoration: none;
@@ -94,7 +102,7 @@ ul li:hover ul.dropdown{
   border-radius: 10px;
   background-size: 200% auto;
   transition: 0.3s ease-in-out;
-}
+} */
 
 .main-content .gradient-btn {
   width: 200px;
@@ -103,9 +111,9 @@ ul li:hover ul.dropdown{
   text-transform: uppercase;
 }
 
-.gradient-btn:hover {
+/* .gradient-btn:hover {
   background-position: right center;
-}
+} */
 
 @media screen and (max-width: 600px) {
   .main-content h1 {
@@ -123,9 +131,9 @@ ul li:hover ul.dropdown{
   }
 }
 
-html{
+/* html{
   scroll-behavior:smooth;
-}
+} */
 
 .about {
   padding: 1rem;
@@ -182,12 +190,12 @@ html{
   font-size: 16px;
 }
 
-.about-sub .gradient-btn {
+/* .about-sub .gradient-btn {
   width: 100px;
   margin-top: 5px;
   height: 30px;
   font-size: 12px;
-}
+} */
 
 @media screen and (max-width: 600px) {
   .about-sub {
